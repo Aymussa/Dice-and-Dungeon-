@@ -2,12 +2,12 @@
 Dungeons &amp; Dragons game base where you roll a dice to determine the outcome of your story
 
 ## Table of Contents ⚀⚁⚂⚃⚄⚅
- - [⚀Description](#⚀description)
- - [⚁Features](#features)
- - [⚂How to Run](#how-to-run)
- - [⚃Contributing](#contributing)
- - [⚄Author](#author)
- - [⚅License](#license)
+ - [⚀ Description](#⚀description)
+ - [⚁ Features](#features)
+ - [⚂ How to Run](#how-to-run)
+ - [⚃ Contributing](#contributing)
+ - [⚄ Author](#author)
+ - [⚅ License](#license)
 
 ## Description
 This is a Dungeons and Dragons game base where you roll a dice to determine the outcome of your story.

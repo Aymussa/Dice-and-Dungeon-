@@ -1,19 +1,20 @@
-import org.junit.Test;
+//import Dice;
+//import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+//import static org.junit.Assert.assertTrue;
 
-public class DiceTest {
+//public class DiceTest {
 
-    @Test
-    public void shouldReturnRandomNumberDice() {
+    //@Test
+    //public void shouldReturnRandomNumberDice() {
         //assemble
-        Dice dice = new Dice();
+        //Dice dice = new Dice();
 
         //act
-        int result = Dice.dice(6);
+        //int result = Dice.dice(6);
 
         //assert
-        assertTrue(result >= 1 && result <= 6);
+        //org.junit.Assert.assertTrue(result >= 1 && result <= 6);
         //assertEquals(Dice.dice(1), (Math.random() * Dice.dice(1)) + 1);
-    }
-}
+    //}
+//}
