@@ -153,14 +153,13 @@ public class MainStory {
         }
     }
 
-        private static void stage1Option2 () {
+        private static void stage1Option2 (String selectedClass, String selectedBoss) {
             System.out.println(" Selected: Wetstone Tunnels");
             //System.out.println("You rolled a " + Dice.dice(6));
 
             int roll = Dice.dice(6);
             //roll 1/2 this is the end of the line
             if (roll >= 1 && roll <= 2) {
-                String selectedClass ="";
                 System.out.println("""
                         The ruins shudder and shift beneath your feet.
                         A hidden passage collapses.
