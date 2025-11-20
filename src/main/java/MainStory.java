@@ -252,7 +252,7 @@ public class MainStory {
             }
         }
 
-//    private static void stage2Option1Holl() {
+//    private static void stage2Option1Roll() {
 //        //System.out.println(" Selected : Forest Hall");
 //        //System.out.println("You rolled a " + Dice.dice(6));
 //
@@ -278,9 +278,7 @@ public class MainStory {
 //
 //                    """);
 //        }
-
-
-    }
+//        }
 
 //private static void stage2Option2Roll2() {
 //    //System.out.println(" Selected : Wetstone Tunnels");
@@ -396,4 +394,4 @@ public class MainStory {
 //        }
 
 
-//}
+}
