@@ -14,12 +14,12 @@ public class MainStory {
                 """
                 + selectedClass +
                 """
-                settles into your bones.
-                Somewhere deep below, you hear a low rumble… the presence of
+                 settles into your bones.
+                Somewhere deep below, you hear a low rumble… the presence of 
                 """
                 + selectedBoss +
                 """
-                stirs. Three passageways stretch before you, each leading deeper into the ancient dungeon.
+                 stirs. Three passageways stretch before you, each leading deeper into the ancient dungeon.
                 """);
 
 
