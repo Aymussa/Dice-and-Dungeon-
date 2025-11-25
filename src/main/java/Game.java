@@ -5,28 +5,35 @@ public class Game {
 
     public static void main(String[] args) {
         Scanner Input = new Scanner(System.in);
-        System.out.println("Hello and welcome to the D&D game!");
-        System.out.println("Let's get started!");
+        System.out.println("""
+                    +----------------------------------------------------+
+                    |         Hello and welcome to the D&D game!         |
+                    |                Let's get started!                  |
+                    +----------------------------------------------------+
+                """);
+        System.out.println("What is your name Adventurer? ");
 
-        System.out.print("What is your name? ");
         String playerName = Input.nextLine();
         System.out.println("\nWelcome, " + playerName + "! Let's begin your D&D adventure!");
+        System.out.println("");
+
         String selectedClass = "";
         String selectedBoss = "";
 
         boolean selectingCharacter = true;
 
         while (selectingCharacter) {
-            System.out.println("What character class would you like to choose");
-
-            System.out.println("Please select from the following options ? : ");
+            System.out.println("""
+                    +----------------------------------------------------+
+                    | What character class would you like to choose?     |
+                    |    -Please select from the following options-      |
+                    |____________________________________________________|
+                    |                                                    |
+                    | Option 1: Wizard | Option 2: Elf Option 3: Warrior |
+                    |                                                    |
+                    +----------------------------------------------------+
+                    """);
             System.out.println();
-            System.out.println("Option 1: Wizard");
-            System.out.println("Option 2: Elf");
-            System.out.println("Option 3: Warrior");
-            System.out.println();
-
-
 
             try {
                 int characterOptions = Input.nextInt();
@@ -73,23 +80,25 @@ public class Game {
                     System.out.println();
                     Input.nextLine();
 
-                    boolean characterOption2 = true;
+                    boolean confirmClass = true;
 
-                    while (characterOption2) {
+                    while (confirmClass) {
                         System.out.println("Would you like to change character? yes / no");
                         String characterChange2 = Input.nextLine().toLowerCase();
                         System.out.println();
 
                         if ((!characterChange2.equals("yes")) && (!characterChange2.equals("no"))) {
                             System.out.println(characterChange2 + " This is an invalid respond");
-                            characterOption2 = true; // keep asking the user the option question
-
+                            confirmClass = true; // keep asking the user the option question
 
                         } else if (characterChange2.equals("yes")) {
                             System.out.println("Great");
-                            selectingCharacter = true; //keep the outer loop running
-                            characterOption2 = false; // exit the inner loop
-                            // Change this line when you want to exit the main character selection loop
+                            confirmClass = false; // this would exist the inner loop
+                            selectingCharacter = true;
+
+                        } else if (characterChange2.equals("no")) {
+                            confirmClass = false; // EXIt this inner loop
+                            selectingCharacter = false; //Exit the outer loop
                         }
                     }
                 } else if (characterOptions == 3) {
@@ -100,22 +109,25 @@ public class Game {
                     System.out.println();
                     Input.nextLine();
 
-                    boolean characterOption3 = true;
+                    boolean confirmClass = true;
 
-                    while (characterOption3) {
+                    while (confirmClass) {
                         System.out.println("Would you like to change your final boss? yes / no");
                         String characterChange3 = Input.nextLine().toLowerCase();
                         System.out.println();
 
                         if ((!characterChange3.equals("yes")) && (!characterChange3.equals("no"))) {
                             System.out.println(characterChange3 + "This is an invalid respond");
-                            characterOption3 = true; // keep asking the user the option question
+                            confirmClass = true; // keep asking the user the option question
 
                         } else if (characterChange3.equals("yes")) {
                             System.out.println("Great");
-                            selectingCharacter = true; //keep the outer loop running
-                            characterOption3 = false; // exit this inner loop
-                            // Change this line when you want to exit the main character selection loop
+                            confirmClass = false; // this would exist the inner loop
+                            selectingCharacter = true;
+
+                        } else if (characterChange3.equals("no")) {
+                            confirmClass = false; // EXIt this inner loop
+                            selectingCharacter = false; //Exit the outer loop
                         }
                     }
                 }
@@ -131,7 +143,7 @@ public class Game {
         boolean finalBoss = true;
 
         while (finalBoss) {
-            System.out.println("Great, Choose your final boss. \n Option 1: Dragon \n Option 2: Dark Knight \n Option 3: Cerberus");
+            System.out.println("Great, Choose your final boss. \n Option 1: Dragon \n Option 2: Dark Elf \n Option 3: Cerberus");
             try {
                 int boosOption1 = Input.nextInt();
                 if (boosOption1 == 1 || boosOption1 == 2 || boosOption1 == 3) {
@@ -145,6 +157,64 @@ public class Game {
                 if (boosOption1 == 1) {
                     selectedBoss = "Dragon";
                     System.out.println("Congratulations " + playerName + " you have selected option 1 ");
+                    System.out.println();
+                    System.out.println("Your final boss is: " + selectedBoss);
+                    System.out.println();
+                    Input.nextLine();
+
+                    while (finalBoosChange) {
+                        System.out.println("Would you like to change your final boss yes / no");
+                        String responseBoosOption = Input.nextLine().toLowerCase();
+                        System.out.println();
+
+                        if ((!responseBoosOption.equals("yes")) && (!responseBoosOption.equals("no"))) {
+                            System.out.println(responseBoosOption + " This is an invalid respond");
+
+                            finalBoosChange = true; // keep asking the user the option question
+                        } else if (responseBoosOption.equals("yes")) {
+                            finalBoosChange = false; // EXIT the inner loop
+                            finalBoss = true; // keep asking the user the option question
+
+                        } else {
+                            System.out.println("Great, lets begin your adventure!");
+                            finalBoss = false;
+                            finalBoosChange = false;
+                            // Change this line when you want to exit the main character selection loop
+                            MainStory.startStory(selectedClass, selectedBoss);// exit the option question loop and enter the main story arc
+                        }
+                    }
+                } else if (boosOption1 == 2) {
+                    selectedBoss = "Dark Elf";
+                    System.out.println("Congratulations " + playerName + " you have selected option 2 ");
+                    System.out.println();
+                    System.out.println("Your final boss is: " + selectedBoss);
+                    System.out.println();
+                    Input.nextLine();
+
+                    while (finalBoosChange) {
+                        System.out.println("Would you like to change your final boss yes / no");
+                        String responseBoosOption = Input.nextLine().toLowerCase();
+                        System.out.println();
+
+                        if ((!responseBoosOption.equals("yes")) && (!responseBoosOption.equals("no"))) {
+                            System.out.println(responseBoosOption + " This is an invalid respond");
+
+                            finalBoosChange = true; // keep asking the user the option question
+                        } else if (responseBoosOption.equals("yes")) {
+                            finalBoosChange = false; // EXIT the inner loop
+                            finalBoss = true; // keep asking the user the option question
+
+                        } else {
+                            System.out.println("Great, lets begin your adventure!");
+                            finalBoss = false;
+                            finalBoosChange = false;
+                            // Change this line when you want to exit the main character selection loop
+                            MainStory.startStory(selectedClass, selectedBoss);// exit the option question loop and enter the main story arc
+                        }
+                    }
+                }else if (boosOption1 == 3) {
+                    selectedBoss = "Cerberus";
+                    System.out.println("Congratulations " + playerName + " you have selected option 3 ");
                     System.out.println();
                     System.out.println("Your final boss is: " + selectedBoss);
                     System.out.println();
