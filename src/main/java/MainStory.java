@@ -213,6 +213,7 @@ public class MainStory {
 
                 }
             }
+        }
             if (roll >= 5 && roll <= 6) {
                 //roll 5/6 this is the outcome if they pick number 2
                 System.out.println("""
@@ -249,7 +250,7 @@ public class MainStory {
                 }
             }
 
-        }
+
     }
 
     private static void stage1Stairwell(String selectedClass, String selectedBoss) {
@@ -270,7 +271,7 @@ public class MainStory {
             //roll 3/4 this is the outcome if they pick number 3
             System.out.println("""
                     Cracks spiderweb across the descent. Cold wind rises,
-                    carrying faint hints of """+selectedBoss + "— ash");
+                    carrying faint hints of """ + selectedBoss + "— ash");
 
             boolean stage1StariwellOptionsOne = true;
             while (stage1StariwellOptionsOne) {
@@ -298,6 +299,7 @@ public class MainStory {
 
                 }
             }
+        }
 
             if (roll >= 5 && roll <= 6) {
                 //roll 5/6 this is the outcome if they pick number 3
@@ -332,6 +334,5 @@ public class MainStory {
                     }
                 }
             }
-        }
     }
 }

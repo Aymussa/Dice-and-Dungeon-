@@ -8,26 +8,25 @@ public class StageThree {
         //roll 1/2 this is the end of the line
         if (roll >= 1 && roll <= 2) {
             System.out.println("""
-                    The stealthy shadows you sought to navigate turn against you.
-                    Darkness engulfs you, unseen claws or tendrils dragging you into the void.
-                    Even as a nimble"""+ selectedClass + """ 
-                    you cannot escape the dungeon’s wrath.
-                    """+selectedBoss+" stirs above, indifferent.");
+                    Magical energy arcs around the chamber, responding violently to your """+ selectedClass + """
+                    presence. You attempt to harness it, but the raw force backlashes. Sparks
+                    ignite, runes shatter, and the dungeon consumes you whole. """+selectedBoss+"""
+                     senses the disturbance, but your attempt ends in fiery ruin.
+                    """);
         }
         else if(roll >= 3 && roll <= 4){
             System.out.println("""
-                    Shadows and traps nearly overwhelm you, but quick thinking lets you slip through.
-                    You emerge battered and shaken. The dungeon keeps its secrets, and [boss-title]
-                    remains undefeated. Your [class] skills saved you, but at great cost.
+                    The magic of the dungeon overwhelms your senses. You stumble
+                    through twisting halls, runes burning around you. Eventually,
+                    you find a narrow escape, but the final seal prevents any progress toward """+selectedBoss+"""
+                    . Survival comes at the price of failing your quest.
                     """);
 
 
         } else if (roll >= 5 && roll <= 6) {
 
             //roll 3/4/5/6 this is the outcome if they pick number 3
-            System.out.println("""
-                    You emerge silently. [boss-title] lifts its head toward you, sensing your presence. 
-                    """);
+            System.out.println("You emerge silently. "+selectedBoss+" lifts its head toward you, sensing your presence.");
 
             boolean stage3Mystic = true;
             while (stage3Mystic) {
@@ -67,18 +66,20 @@ public class StageThree {
             System.out.println("""
                     Stones tumble, weapons fall, and the ground shakes.
                     You struggle, pushing against debris and fallen enemies,
-                    but the weight is too much. As a [class], strength cannot
-                    overcome sheer ruin. The dungeon’s power crushes you, leaving only silence
+                    but the weight is too much. As a """+selectedClass+
+                    """
+                    strength cannot overcome sheer ruin. The dungeon’s power crushes you, leaving only silence
                     """);
 
-        } else if (roll >= 5 && roll <= 6) {
+        } else if (roll >= 3 && roll <= 4) {
 
             //roll 3/4/5/6 this is the outcome if they pick number 3
             System.out.println("""
                     You face formidable foes in the ruins, fighting with all your might.
-                    Despite bravery, the enemies prove too strong. Wounded, you withdraw,
-                    leaving [boss-title] undisturbed. Your [class] training saved your life, but victory eludes you.
+                    Despite bravery, the enemies prove too strong. Wounded, you withdraw,leaving
                     """);
+            System.out.println(selectedBoss+" undisturbed. Your "+selectedClass+" training saved your life,");
+            System.out.println("but victory eludes you.");
         } else if (roll >= 5 && roll <= 6) {
             System.out.println("""
                     You stride forward confidently. The lair trembles as [boss] rises.
@@ -119,24 +120,26 @@ public class StageThree {
         //roll 1/2 this is the end of the line
         if (roll >= 1 && roll <= 2) {
             System.out.println("""
-                    Magical energy arcs around the chamber, responding violently to your [class]
-                    presence. You attempt to harness it, but the raw force backlashes. Sparks
-                    ignite, runes shatter, and the dungeon consumes you whole. [boss-title]
-                    senses the disturbance, but your attempt ends in fiery ruin.
+                    The stealthy shadows you sought to navigate turn against you.
+                    Darkness engulfs you, unseen claws or tendrils dragging you into the void.
+                    Even as a nimble """ +selectedClass +
+                    """
+                     you cannot escape the dungeon's wrath. """+selectedBoss+"""
+                     stirs above, indifferent.
                     """);
         } else if (roll >= 3 && roll <= 4 ) {
             System.out.println("""
-                        The magic of the dungeon overwhelms your senses. You stumble
-                        through twisting halls, runes burning around you. Eventually,
-                        you find a narrow escape, but the final seal prevents any
-                        progress toward [boss-title]. Survival comes at the price of failing your quest.
+                        Shadows and traps nearly overwhelm you, but quick thinking lets you slip through.
+                        You emerge battered and shaken. The dungeon keeps its secrets, and """ + selectedBoss+
+                        """
+                         remains undefeated. Your """+selectedClass+
+                        """
+                        skills saved you, but at great cost.
                         """);
         }else if (roll >= 5 && roll <= 6) {
 
                 //roll 5/6 this is the outcome if they pick number 3
-                System.out.println("""
-                        The runes blaze, and the chamber opens. [boss-title] stands ready.
-                        """);
+                System.out.println("The runes blaze, and the chamber opens. "+selectedBoss+ " stands ready.");
 
                 boolean stage3Stealth = true;
                 while (stage3Stealth) {

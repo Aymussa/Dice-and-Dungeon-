@@ -27,7 +27,7 @@ public class StageTwo {
             boolean stage2Mystic = true;
             while (stage2Mystic) {
 
-                System.out.println("1.Channel \n2.Read \n3. Break Seal");
+                System.out.println("1.Channel Energy \n2.Read Runes \n3.Break Seal");
 
                 System.out.println("");
 
@@ -62,22 +62,21 @@ public class StageTwo {
             System.out.println("""
                     The dungeon is alive with peril. Water surges.
                     You swim, but the current, overwhelms you.
-                    The echo of [boss-title] passes unseen above
+                    The echo of"""+ selectedBoss +
+                    """
+                    passes unseen above
                     as your story ends in the cold, unyielding depths.
                     """);
 
         } else if (roll >= 3 && roll <= 6) {
 
             //roll 3/4/5/6 this is the outcome if they pick number 3
-            System.out.println("""
-                    Runes pulse beneath the dust, reacting to your presence as a 
-                    """
-                    + selectedClass +
-                    " A magical humming grows — a heartbeat from " + selectedBoss);
+            System.out.println("Rusting weapons, crushed armor, and deep gouges line the hall.");
+            System.out.println(" Heavy air presses down as echoes of old battles whisper your approach toward " + selectedBoss);
             boolean stage2Combat = true;
             while (stage2Combat) {
 
-                System.out.println("1.Channel \n2.Read \n3. Break Seal");
+                System.out.println("1.Bash Forward \n2.Shield up \n3. Charge");
 
                 System.out.println("");
 
@@ -110,24 +109,21 @@ public class StageTwo {
         //roll 1/2 this is the end of the line
         if (roll >= 1 && roll <= 2) {
             System.out.println("""
-                    The dungeon is alive with peril. Water surges.
-                    You swim, but the current, overwhelms you.
-                    The echo of [boss-title] passes unseen above
-                    as your story ends in the cold, unyielding depths.
+                    The dungeon is alive with peril. Water surges. You swim,
+                    but the current, overwhelms you.The echo of"""+ selectedBoss+
+                    """
+                    passes unseen above as your story ends in the cold, unyielding depths.
                     """);
         }
                     else if (roll >= 3 && roll <= 6) {
 
                 //roll 3/4/5/6 this is the outcome if they pick number 3
-                System.out.println("""
-                        Runes pulse beneath the dust, reacting to your presence as a 
-                        """
-                        + selectedClass +
-                        " A magical humming grows — a heartbeat from " + selectedBoss);
+            System.out.println("You move quietly through torchless halls. Distant patrols pass by. ");
+            System.out.println("The stone vibrates occasionally — a sign"+selectedBoss+" shifts somewhere below." );
                 boolean stage2Stealth = true;
                 while (stage2Stealth) {
 
-                    System.out.println("1.Channel \n2.Read \n3. Break Seal");
+                    System.out.println("1.Hide \n2.Sneak Attack \n3. Slip Past");
 
                     System.out.println("");
 
