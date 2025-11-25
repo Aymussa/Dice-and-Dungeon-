@@ -121,6 +121,8 @@ public class MainStory {
                     System.out.println("invalid pick");
 
                 }
+            }
+        }
 
             //roll 5/6 this is the outcome if they pick number 1
             if (roll >= 5 && roll <= 6) {
@@ -159,8 +161,6 @@ public class MainStory {
                     }
                 }
             }
-        }
-    }
         }
 
     private static void stage1Wetstone(String selectedClass, String selectedBoss) {
