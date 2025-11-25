@@ -7,19 +7,18 @@ public class MainStory {
         //stage 1 of the story, origin story start
         System.out.println("");
         System.out.println("""
-                You awaken in the shadowed ruins of The Fallen Gate,
-                the air thick with dust and echoing distant tremors.
-                As your senses return,
-                you steady yourself — the resolve of a seasoned 
+                        +--------------------------------------------------------------+
+                        |You awaken in the shadowed ruins of The Fallen Gate,          |
+                        |the air thick with dust and echoing distant tremors.          |
+                        |As your senses return, you steady yourself —                  |
+                        |the resolve of a seasoned """+ selectedClass+
                 """
-                + selectedClass +
+                        settles into your bones.  |
+                        Somewhere deep below, you hear a low rumble… the presence of   |
+                        """ + selectedBoss +
                 """
-                         settles into your bones.
-                        Somewhere deep below, you hear a low rumble… the presence of 
-                        """
-                + selectedBoss +
-                """
-                         stirs. Three passageways stretch before you, each leading deeper into the ancient dungeon.
+                         stirs. Three passageways stretch before you, each leading |
+                        |deeper into the ancient dungeon.                              |
                         """);
 
 
@@ -27,15 +26,15 @@ public class MainStory {
         while (storyline) {
 
             System.out.println("""
-                            +--------------------------+
-                            |What are you going to do? |
-                            |_________________________ |
-                            |                          |
-                            |1.Forest Hall             |
-                            |2.Wetstone Tunnels        |
-                            |3.Broken Stairwell        |
-                            |                          |
-                            +--------------------------+
+                            +-----------------------------------+
+                            | which path are you going to take ? |
+                            |____________________________________|
+                            |                                    |
+                            |    1.Forest Hall                   |
+                            |    2.Wetstone Tunnels              |
+                            |    3.Broken Stairwell              |
+                            |                                    |
+                            +------------------------------------+
                     """);
             System.out.println("");
 
@@ -137,6 +136,7 @@ public class MainStory {
                 boolean stage1ForestOptionsTwo = true;
                 while (stage1ForestOptionsTwo) {
 
+
                     System.out.println("1.Advance \n2.Touch Rune \n3.Climb Roots");
 
                     System.out.println("");
@@ -153,7 +153,7 @@ public class MainStory {
                     }
                     if (forestSelectionsTwo == 1 || forestSelectionsTwo == 2 || forestSelectionsTwo == 3) {
                         StageTwo.stage2Stealth(selectedClass, selectedBoss);
-                        Input.nextLine();
+                        InputTwo.nextLine();
                         stage1ForestOptionsTwo = false;
                     } else {
                         System.out.println("invalid pick");

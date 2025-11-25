@@ -54,7 +54,11 @@ public class Game {
                     boolean confirmClass = true;
 
                     while (confirmClass) {
-                        System.out.println("Would you like to change character? yes / no");
+                        System.out.println("""
+                                +----------------------------------------------+
+                                | Would you like to change character? yes / no |
+                                +----------------------------------------------+
+                        """);
                         String characterChange1 = Input.nextLine().toLowerCase();
                         System.out.println();
 
@@ -83,7 +87,11 @@ public class Game {
                     boolean confirmClass = true;
 
                     while (confirmClass) {
-                        System.out.println("Would you like to change character? yes / no");
+                        System.out.println("""
+                                +----------------------------------------------+
+                                | Would you like to change character? yes / no |
+                                +----------------------------------------------+
+                        """);
                         String characterChange2 = Input.nextLine().toLowerCase();
                         System.out.println();
 
@@ -112,7 +120,11 @@ public class Game {
                     boolean confirmClass = true;
 
                     while (confirmClass) {
-                        System.out.println("Would you like to change your final boss? yes / no");
+                        System.out.println("""
+                                +----------------------------------------------+
+                                | Would you like to change character? yes / no |
+                                +----------------------------------------------+
+                        """);
                         String characterChange3 = Input.nextLine().toLowerCase();
                         System.out.println();
 
@@ -163,7 +175,11 @@ public class Game {
                     Input.nextLine();
 
                     while (finalBoosChange) {
-                        System.out.println("Would you like to change your final boss yes / no");
+                        System.out.println("""
+                                +----------------------------------------------------+
+                                | Would you like to change your final boss? yes / no |
+                                +----------------------------------------------------+
+                        """);
                         String responseBoosOption = Input.nextLine().toLowerCase();
                         System.out.println();
 
@@ -192,7 +208,11 @@ public class Game {
                     Input.nextLine();
 
                     while (finalBoosChange) {
-                        System.out.println("Would you like to change your final boss yes / no");
+                        System.out.println("""
+                                +----------------------------------------------------+
+                                | Would you like to change your final boss? yes / no |
+                                +----------------------------------------------------+
+                        """);
                         String responseBoosOption = Input.nextLine().toLowerCase();
                         System.out.println();
 
@@ -221,7 +241,11 @@ public class Game {
                     Input.nextLine();
 
                     while (finalBoosChange) {
-                        System.out.println("Would you like to change your final boss yes / no");
+                        System.out.println("""
+                                +----------------------------------------------------+
+                                | Would you like to change your final boss? yes / no |
+                                +----------------------------------------------------+
+                        """);
                         String responseBoosOption = Input.nextLine().toLowerCase();
                         System.out.println();
 
