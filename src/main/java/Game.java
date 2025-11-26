@@ -5,6 +5,10 @@ public class Game {
 
     public static void main(String[] args) {
         Scanner Input = new Scanner(System.in);
+
+        String[] characterClasses = {"Wizard", "Elf", "Warrior"};
+        String[] bossOptions = {"Dragon", "Dark Elf", "Cerberus"};
+
         System.out.println("""
                     +----------------------------------------------------+
                     |         Hello and welcome to the D&D game!         |
@@ -44,7 +48,7 @@ public class Game {
                     selectingCharacter = true;
                 }
                 if (characterOptions == 1) {
-                    selectedClass = "Wizard";
+                    selectedClass = characterClasses[characterOptions-1];
                     System.out.println("Congratulations " + playerName + " you have selected option 1 ");
                     System.out.println();
                     System.out.println("You have chosen to be a " + selectedClass);
@@ -77,7 +81,7 @@ public class Game {
                         }
                     }
                 } else if (characterOptions == 2) {
-                    selectedClass = "Elf";
+                    selectedClass = characterClasses[characterOptions-1];
                     System.out.println("Congratulations " + playerName + " you have selected option 2 ");
                     System.out.println();
                     System.out.println("You have chosen to be an " + selectedClass);
@@ -110,7 +114,7 @@ public class Game {
                         }
                     }
                 } else if (characterOptions == 3) {
-                    selectedClass = "Warrior";
+                    selectedClass = characterClasses[characterOptions-1];
                     System.out.println("Congratulations " + playerName + " you have selected option 3 ");
                     System.out.println();
                     System.out.println("You have chosen to be an " + selectedClass);
@@ -167,7 +171,7 @@ public class Game {
                 boolean finalBoosChange = true;
 
                 if (boosOption1 == 1) {
-                    selectedBoss = "Dragon";
+                    selectedBoss = bossOptions[boosOption1-1];
                     System.out.println("Congratulations " + playerName + " you have selected option 1 ");
                     System.out.println();
                     System.out.println("Your final boss is: " + selectedBoss);
@@ -200,7 +204,7 @@ public class Game {
                         }
                     }
                 } else if (boosOption1 == 2) {
-                    selectedBoss = "Dark Elf";
+                    selectedBoss = bossOptions[boosOption1-1];
                     System.out.println("Congratulations " + playerName + " you have selected option 2 ");
                     System.out.println();
                     System.out.println("Your final boss is: " + selectedBoss);
@@ -233,7 +237,7 @@ public class Game {
                         }
                     }
                 }else if (boosOption1 == 3) {
-                    selectedBoss = "Cerberus";
+                    selectedBoss = bossOptions[boosOption1-1];
                     System.out.println("Congratulations " + playerName + " you have selected option 3 ");
                     System.out.println();
                     System.out.println("Your final boss is: " + selectedBoss);
