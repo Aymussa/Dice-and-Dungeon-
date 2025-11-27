@@ -3,6 +3,11 @@ import java.util.Scanner;
 
 public class Game {
 
+    public static getCharacterClass(){
+        //take in the option 1/2/3 as the user input and return string array
+        //this will have the logic and method outside the main so that i can test the code
+    }
+
     public static void main(String[] args) {
         Scanner Input = new Scanner(System.in);
 
@@ -49,9 +54,7 @@ public class Game {
                 }
                 if (characterOptions >= 1 && characterOptions <= 3) {
                     selectedClass = characterClasses[characterOptions - 1];
-                    System.out.println("Congratulations " + playerName + " you have selected option 1 ");
-                    System.out.println();
-                    System.out.println("You have chosen to be a " + selectedClass);
+                    System.out.println("Congratulations " + playerName + " you have selected" + selectedClass );
                     System.out.println();
                     Input.nextLine();
 
