@@ -10,7 +10,7 @@ Dungeons &amp; Dragons game base where you roll a dice to determine the outcome 
  - [⚅ License](#license)
 
 ## Description
-This is a Dungeons and Dragons game base where you roll a dice to determine the outcome of your story.
+This is a Dice and Dungeons game base where you roll a dice to determine the outcome of your story.
 
 ## Features
 - Dice rolling
@@ -29,5 +29,4 @@ Contributions are welcome! Please open an issue or submit a pull request.
 Ahmed Mussa - Contact me on GitHub username: aymussa for any questions.
 
 ## License
-MIT License
 This is a university project

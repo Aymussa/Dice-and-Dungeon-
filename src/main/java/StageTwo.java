@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class StageTwo {
 
     public static void stage2Mystic(String selectedClass, String selectedBoss) {
-
         //System.out.println(" Selected : Forest Hall");
         //System.out.println("You rolled a " + Dice.dice(6));
+
 
         int roll = Dice.dice(6);
         //roll 1/2 this is the end of the line
@@ -33,17 +33,17 @@ public class StageTwo {
 
                     // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
                     //if the dice lands 3/4 or 4/5 it goes to stage 3 of the story
+                    Scanner Input = new Scanner(System.in);
 
                     try {
-                        Scanner Input = new Scanner(System.in);
                         int MysticSelections = Input.nextInt();
-                    if (MysticSelections == 1 || MysticSelections == 2 || MysticSelections == 3) {
+                    if (MysticSelections >= 1 && MysticSelections <= 3) {
                         stage2Mystic = true;
                     } else {
                         System.out.println(MysticSelections + " - Invalid option. Please try again.");
                         stage2Mystic = true;
                     }
-                        if (MysticSelections == 1 || MysticSelections == 2 || MysticSelections == 3) {
+                        if (MysticSelections >= 1 && MysticSelections <= 3) {
                             StageThree.stage3Mystic(selectedClass, selectedBoss);
                             Input.nextLine();
                             stage2Mystic = false;
@@ -88,18 +88,16 @@ public class StageTwo {
 
                     // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
                     //if the dice lands 3/4 or 4/5 it goes to stage 3 of the story
-
+                    Scanner Input = new Scanner(System.in);
                     try {
-                        Scanner Input = new Scanner(System.in);
                         int combatSelection = Input.nextInt();
-
-                    if (combatSelection == 1 || combatSelection == 2 || combatSelection == 3) {
+                        if (combatSelection >= 1 && combatSelection <= 3) {
                         stage2Combat = true;
                     } else {
                         System.out.println(combatSelection + " - Invalid option. Please try again.");
                         stage2Combat = true;
                     }
-                        if (combatSelection == 1 || combatSelection == 2 || combatSelection == 3) {
+                        if (combatSelection >= 1 && combatSelection <= 3) {
                             StageThree.stage3Combat(selectedClass, selectedBoss);
                             Input.nextLine();
                             stage2Combat = false;
@@ -141,17 +139,17 @@ public class StageTwo {
 
                     // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
                     //if the dice lands 3/4 or 4/5 it goes to stage 3 of the story
+                    Scanner Input = new Scanner(System.in);
 
                     try {
-                        Scanner Input = new Scanner(System.in);
                         int stealthSelection = Input.nextInt();
-                    if (stealthSelection == 1 || stealthSelection == 2 || stealthSelection == 3) {
+                    if (stealthSelection >= 1 && stealthSelection <= 3) {
                         stage2Stealth = true;
                     } else {
                         System.out.println(stealthSelection + " - Invalid option. Please try again.");
                         stage2Stealth = true;
                     }
-                        if (stealthSelection == 1 || stealthSelection == 2 || stealthSelection == 3) {
+                        if (stealthSelection >= 1 && stealthSelection <= 3) {
                             StageThree.stage3Stealth(selectedClass, selectedBoss);
                             Input.nextLine();
                             stage2Stealth = false;

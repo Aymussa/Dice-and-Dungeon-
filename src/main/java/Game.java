@@ -144,7 +144,7 @@ public class Game {
                     // Invalid option - show error and loop continues
                     System.out.println(boosOption + " - Invalid option. Please try again.");
                 }
-            }catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println("Invalid input. Please enter a number between 1 - 3.");
                 Input.nextLine(); // Clear the scanner buffer
                 finalBoss = true;

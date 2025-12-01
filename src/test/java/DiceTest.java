@@ -34,10 +34,10 @@ public class DiceTest {
         Dice dice = new Dice();
 
         //act
-        int result = Dice.dice(20);
+        int result = Dice.dice(99999);
 
         //assert
-        Assertions.assertTrue(result >= 1 && result <= 20);
+        Assertions.assertTrue(result >= 1 && result <= 99999);
     }
 
 }
