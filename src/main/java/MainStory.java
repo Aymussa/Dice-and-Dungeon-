@@ -16,7 +16,8 @@ public class MainStory {
                         |You awaken in the shadowed ruins of The Fallen Gate,          |
                         |the air thick with dust and echoing distant tremors.          |
                         |As your senses return, you steady yourself —                  |
-                        |the resolve of a seasoned """ + selectedClass +
+                        |the resolve of a seasoned
+                         """ + selectedClass +
                         """
                                 settles into your bones.  |
                                 Somewhere deep below, you hear a low rumble… the presence of   |
@@ -25,8 +26,17 @@ public class MainStory {
                                  stirs. Three passageways stretch before you, each leading |
                                 |deeper into the ancient dungeon.                              |
                                 """);
-
-
+                String StartLine = String.format("""
+                        +--------------------------------------------------------------+
+                        |You awaken in the shadowed ruins of The Fallen Gate,          |
+                        |the air thick with dust and echoing distant tremors.          |
+                        |As your senses return, you steady yourself —                  |
+                        |the resolve of a seasoned %s settles into your bones.      |
+                        |Somewhere deep below, you hear a low rumble… the presence of |
+                        |%s stirs. Three passageways stretch before you, each leading |
+                        |deeper into the ancient dungeon.                              |
+                        """, selectedClass, selectedBoss);
+                System.out.println(StartLine);
                 boolean storyline = true;
                 while (storyline) {
 

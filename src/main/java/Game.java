@@ -123,7 +123,15 @@ public class Game {
         boolean finalBoss = true;
 
         while (finalBoss) {
-            System.out.println("Great, Choose your final boss. \n Option 1: Dragon \n Option 2: Dark Elf \n Option 3: Cerberus");
+            System.out.println("""
+                    +-----------------------------------------------------------------------+
+                    |                                                                       |
+                    |                   Great, Choose your final boss.                      |
+                    |_______________________________________________________________________|
+                    |                                                                       |
+                    |   Option 1: Dragon   |   Option 2: Dark Elf  |    Option 3: Cerberus  |
+                    +-----------------------------------------------------------------------+
+            """);
             try {
                 int boosOption = Input.nextInt();
                 selectedBoss = getBoss(boosOption);
@@ -153,7 +161,13 @@ public class Game {
                             finalBoss = true; // keep asking the user the option question
 
                         } else {
-                            System.out.println("Great, lets begin your adventure!");
+                            System.out.println("""
+                                    +--------------------------------------+
+                                    |                                      |
+                                    |   Great, lets begin your adventure!  |
+                                    |                                      |
+                                    +--------------------------------------+
+                            """);
                             finalBoss = false;
                             finalBoosChange = false;
                             // Change this line when you want to exit the main character selection loop
