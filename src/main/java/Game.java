@@ -1,12 +1,10 @@
 import java.util.Scanner;
 
-
 public class Game {
-
     public static String getCharacterClass(int option){
         //take in the option 1/2/3 as the user input and return string array
         //this will have the logic and method outside the main so that i can test the code
-        String[] characterClasses = {"Wizard", "Elf", "Warrior"};
+        String[] characterClasses = {"Wizard", "Knight", "Wood Elf", "High Elf"};
         if ( option >= 1 && option <= 3) {
             return characterClasses[option - 1];
         }return null;
@@ -19,6 +17,7 @@ public class Game {
     }
 
     public static void main(String[] args) {
+
         Scanner Input = new Scanner(System.in);
 
 
@@ -46,7 +45,8 @@ public class Game {
                     |    -Please select from the following options-      |
                     |____________________________________________________|
                     |                                                    |
-                    | Option 1: Wizard | Option 2: Elf Option 3: Warrior |
+                    | Option 1: Wizard .       | Option 2: Knight        |
+                    | Option 3: Wood Elf       | Option 3: High Elf .    |
                     |                                                    |
                     +----------------------------------------------------+
                     """);
@@ -100,6 +100,27 @@ public class Game {
                 System.out.println();
             }
         }
+        
+        //HumanCharacter player = new HumanCharacter(selectedClass);
+
+        // Create player object with the selected class
+        HumanCharacter player;
+        switch (selectedClass){
+            case "Wizard":
+                player = new HumanCharacter.Wizard(selectedClass);
+                break;
+            case "Knight":
+                player = new HumanCharacter.Knight(selectedClass);
+                break;
+            case "Wood Elf":
+                player = new ElfCharacter.WoodElf(selectedClass);
+                break;
+            case "High Elf":
+                player = new ElfCharacter.HighElf(selectedClass);
+                break;
+        }
+        System.out.println(selectedClass);
+
         boolean finalBoss = true;
 
         while (finalBoss) {
