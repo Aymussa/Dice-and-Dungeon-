@@ -5,7 +5,7 @@ public class Game {
         //take in the option 1/2/3 as the user input and return string array
         //this will have the logic and method outside the main so that i can test the code
         String[] characterClasses = {"Wizard", "Knight", "Wood Elf", "High Elf"};
-        if ( option >= 1 && option <= 3) {
+        if ( option >= 1 && option <= 4) {
             return characterClasses[option - 1];
         }return null;
     }
@@ -45,8 +45,8 @@ public class Game {
                     |    -Please select from the following options-      |
                     |____________________________________________________|
                     |                                                    |
-                    | Option 1: Wizard .       | Option 2: Knight        |
-                    | Option 3: Wood Elf       | Option 3: High Elf .    |
+                    | Option 1: Wizard         | Option 2: Knight        |
+                    | Option 3: Wood Elf       | Option 4: High Elf      |
                     |                                                    |
                     +----------------------------------------------------+
                     """);
@@ -57,7 +57,7 @@ public class Game {
                 selectedClass = getCharacterClass(characterOptions);
                 
                 // Check if user input is right and continue with the selection
-                if (characterOptions >= 1 && characterOptions <= 3) {
+                if (characterOptions >= 1 && characterOptions <= 4) {
                     System.out.println("Congratulations " + playerName + " you have selected " + selectedClass + " as your character class");
                     System.out.println();//
                     Input.nextLine();
@@ -70,19 +70,19 @@ public class Game {
                                         | Would you like to change character? yes / no |
                                         +----------------------------------------------+
                                 """);
-                        String characterChange1 = Input.nextLine().toLowerCase();
+                        String characterChange = Input.nextLine().toLowerCase();
                         System.out.println();
 
-                        if ((!characterChange1.equals("yes")) && (!characterChange1.equals("no"))) {
-                            System.out.println(characterChange1 + " This is an invalid respond");
+                        if ((!characterChange.equals("yes")) && (!characterChange.equals("no"))) {
+                            System.out.println(characterChange + " This is an invalid respond");
                             confirmClass = true; // keep asking the user the option question
 
-                        } else if (characterChange1.equals("yes")) {
+                        } else if (characterChange.equals("yes")) {
                             System.out.println("Great");
                             confirmClass = false; // this would exist the inner loop
                             selectingCharacter = true;
 
-                        } else if (characterChange1.equals("no")) {
+                        } else if (characterChange.equals("no")) {
                             confirmClass = false; // EXIt this inner loop
                             selectingCharacter = false; //Exit the outer loop
                         }
@@ -91,8 +91,7 @@ public class Game {
                     // if the user inputs anything else Invalid option - show error and loop continues
                     System.out.println(characterOptions + " - Invalid option. Please try again.");
                 }
-            }catch (
-                    Exception e) {
+            }catch (Exception e) {
                 System.out.println("Invalid input. Please enter a number between 1 - 3.");
                 Input.nextLine(); // Clear the scanner buffer
                 selectingCharacter = true;
@@ -104,7 +103,7 @@ public class Game {
         //HumanCharacter player = new HumanCharacter(selectedClass);
 
         // Create player object with the selected class
-        HumanCharacter player;
+        Character player;
         switch (selectedClass){
             case "Wizard":
                 player = new HumanCharacter.Wizard(selectedClass);

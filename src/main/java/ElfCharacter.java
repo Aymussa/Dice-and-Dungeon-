@@ -1,42 +1,33 @@
-public class ElfCharacter {
-    private String name;
+public class ElfCharacter extends Character {
+    //private String name;
 
-    //private String weapon;
-    public ElfCharacter(String name)//String weapon)
-    {
-        this.name = name;
-        //this.weapon = weapon;
+    public ElfCharacter(String name){
+        super(name);
+        //this.name = name;
     }
-
-    public String toString() {
-        return "Name: " + name;
-    }
-   // public String getWeapon() {
-       // return weapon;
+   // public String toString(){
+       // return "name: " + name;
     //}
+    public static class WoodElf extends ElfCharacter{
+        //private String name;
 
-    public class WoodElf extends ElfCharacter {
-        private String name;
-
-        public WoodElf(String name)//, String weapon){
-
-        {
-            super(name);// weapon
-            this.name = name;
+        public WoodElf(String name){
+            super(name);
+            //this.name = name;
         }
-
-    }
-
-    public class HighElf extends ElfCharacter {
-        private String name;
-
-        public HighElf(String name)//, String weapon){
-
-        {
-            super(name);// weapon
-            this.name = name;
+        public String toString(){
+            return "name: " + getName();
         }
-
     }
+    public static class HighElf extends ElfCharacter{
+        //private String name;
 
+        public HighElf(String name){
+            super(name);
+            //this.name = name;
+        }
+        public String toString(){
+            return "name: " + getName();
+        }
+    }
 }
