@@ -5,7 +5,7 @@ public class MainStory {
 
     public static void startStory(String selectedClass, String selectedBoss) {
 
-        Scanner Input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
             //stage 1 of the story, origin story start
             System.out.println("");
             String StartLine = String.format("""
@@ -38,9 +38,9 @@ public class MainStory {
 
                 // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
                 //if the dice lands 3/4 or 4/5 it goes to stage 2 of the story
-                //Scanner Input = new Scanner(System.in);
+                //Scanner input = new Scanner(System.in);
                 try {
-                    int firstStage = Input.nextInt();
+                    int firstStage = input.nextInt();
                     if (firstStage >= 1 && firstStage <= 3) {
                         storyline = true;
                     } else {
@@ -49,22 +49,22 @@ public class MainStory {
                     }
                     if (firstStage == 1) {
                         MainStory.stage1Forest(selectedClass, selectedBoss);
-                        Input.nextLine();
+                        input.nextLine();
                         storyline = false;
                     } else if (firstStage == 2) {
                         MainStory.stage1Wetstone(selectedClass, selectedBoss);
-                        Input.nextLine();
+                        input.nextLine();
                         storyline = false;
                     } else if (firstStage == 3) {
                         MainStory.stage1Stairwell(selectedClass, selectedBoss);
-                        Input.nextLine();
+                        input.nextLine();
                         storyline = false;
 
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
                     storyline = true;
-                    Input.nextLine(); // Clear the scanner buffer
+                    input.nextLine(); // Clear the scanner buffer
                 }
             }
         }
@@ -173,12 +173,6 @@ public class MainStory {
                 Scanner input = new Scanner(System.in);
                 try {
                 int forestSelectionsTwo = input.nextInt();
-//                        if (forestSelectionsTwo >= 1 && forestSelectionsTwo <= 3) {
-//                            stage1ForestOptionsTwo = true;
-//                        } else {
-//                            System.out.println(forestSelectionsTwo + " - Invalid option. Please try again.");
-//                            stage1ForestOptionsTwo = true;
-//                        }
 
                     if (forestSelectionsTwo >= 1 && forestSelectionsTwo <= 3) {
                         StageTwo.stage2Stealth(selectedClass, selectedBoss);// this takes you to the next stage
@@ -196,7 +190,6 @@ public class MainStory {
             }
         }
     }
-
 
         private static void stage1Wetstone (String selectedClass, String selectedBoss){
             System.out.println("Selected: Wetstone Tunnels");
@@ -247,12 +240,7 @@ public class MainStory {
                     Scanner input = new Scanner(System.in);
                     try {
                         int forestSelections = input.nextInt();
-//                    if (forestSelections >= 1 && forestSelections <= 3) {
-//                        stage1WetstoneOptionsOne = true;
-//                    } else {
-//                        System.out.println(forestSelections + " - Invalid option. Please try again.");
-//                        stage1WetstoneOptionsOne = true;
-//                    }
+
                         if (forestSelections >= 1 && forestSelections <= 3) {
                             StageTwo.stage2Stealth(selectedClass, selectedBoss);
                             input.nextLine();
@@ -299,30 +287,24 @@ public class MainStory {
 
                     // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
                     //if the dice lands 3/4 or 4/5 it goes to stage 2 of the story
-                    Scanner Input = new Scanner(System.in);
+                    Scanner input = new Scanner(System.in);
                     try {
-                        int weststoneSelections = Input.nextInt();
-//                    if (weststoneSelections == 1 || weststoneSelections == 2 || weststoneSelections == 3) {
-//                        stage1WetstoneOptionsTwo = true;
-//                    } else {
-//                        System.out.println(weststoneSelections + " - Invalid option. Please try again.");
-//                        stage1WetstoneOptionsTwo = true;
-//                    }
+                        int weststoneSelections = input.nextInt();
+
                         if (weststoneSelections >= 1 && weststoneSelections <= 3) {
                             StageTwo.stage2Combat(selectedClass, selectedBoss);
-                            Input.nextLine();
+                            input.nextLine();
                             stage1WetstoneOptionsTwo = false;
                         } else {
                             System.out.println(weststoneSelections + " - Invalid option. Please try again.");
                             stage1WetstoneOptionsTwo = true;
-                            Input.nextLine(); // Clear the scanner buffer
+                            input.nextLine(); // Clear the scanner buffer
                         }
                     } catch (Exception e) {
                         System.out.println("Invalid input. Please enter a number between 1 - 3.");
                         stage1WetstoneOptionsTwo = true;
-                        Input.nextLine(); // Clear the scanner buffer
+                        input.nextLine(); // Clear the scanner buffer
                     }
-
                 }
             }
         }
@@ -330,7 +312,7 @@ public class MainStory {
 
         private static void stage1Stairwell (String selectedClass, String selectedBoss){
             boolean stage1Staitwellstart = true;
-            Scanner Input = new Scanner(System.in);
+            Scanner input = new Scanner(System.in);
 
             while (stage1Staitwellstart) {
                 System.out.println(" Selected : Broken Stairwell");
@@ -377,16 +359,11 @@ public class MainStory {
                         //if the dice lands 3/4 or 4/5 it goes to stage 2 of the story
                         //Scanner Input = new Scanner(System.in);
                         try {
-                            int stairwellSelections = Input.nextInt();
-//                            if (stairwellSelections >= 1 && stairwellSelections <= 3) {
-//                                stage1StariwellOptionsOne = true;
-//                            } else {
-//                                System.out.println(stairwellSelections + " - Invalid option. Please try again.");
-//                                stage1StariwellOptionsOne = true;
-//                            }
+                            int stairwellSelections = input.nextInt();
+
                             if (stairwellSelections >= 1 && stairwellSelections <= 3) {
                                 StageTwo.stage2Combat(selectedClass, selectedBoss);
-                                Input.nextLine();
+                                input.nextLine();
                                 stage1StariwellOptionsOne = false;
                             } else {
                                 System.out.println(stairwellSelections + " - Invalid option. Please try again.");
@@ -395,7 +372,7 @@ public class MainStory {
                         } catch (Exception e) {
                             System.out.println("Invalid input. Please enter a number between 1 - 3.");
                             stage1StariwellOptionsOne = true;
-                            Input.nextLine(); // Clear the scanner buffer
+                            input.nextLine(); // Clear the scanner buffer
                         }
                     }
                 }
@@ -425,16 +402,11 @@ public class MainStory {
                         //if the dice lands 3/4 or 4/5 it goes to stage 2 of the story
                         //Scanner Input = new Scanner(System.in);
                         try {
-                            int stairwellSelections = Input.nextInt();
-//                            if (stairwellSelections >= 1 && stairwellSelections <= 3) {
-//                                stage1StariwellOptionsTwo = true;
-//                            } else {
-//                                System.out.println(stairwellSelections + " - Invalid option. Please try again.");
-//                                stage1StariwellOptionsTwo = true;
-//                            }
+                            int stairwellSelections = input.nextInt();
+
                             if (stairwellSelections >= 1 && stairwellSelections <= 3) {
                                 StageTwo.stage2Mystic(selectedClass, selectedBoss);
-                                Input.nextLine();
+                                input.nextLine();
                                 stage1StariwellOptionsTwo = false;
                             } else {
                                 System.out.println(stairwellSelections + " - Invalid option. Please try again.");
@@ -443,14 +415,11 @@ public class MainStory {
                         } catch (Exception e) {
                             System.out.println("Invalid input. Please enter a number between 1 - 3.");
                             stage1StariwellOptionsTwo = true;
-                            Input.nextLine(); // Clear the scanner buffer
+                            input.nextLine(); // Clear the scanner buffer
                         }
 
                     }
                 }
             }
-//        } catch (Exception e) {
-//            System.out.println("Invalid input. Please enter a number between 1 - 3.");
-//            Input.nextLine(); // Clear the scanner buffer
         }
     }

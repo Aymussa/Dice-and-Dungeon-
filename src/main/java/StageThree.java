@@ -49,29 +49,24 @@ public class StageThree {
                 System.out.println("");
                 // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
                 //if the dice lands 3/4 or 4/5 it goes to stage 3 of the story
-                Scanner Input = new Scanner(System.in);
+                Scanner input = new Scanner(System.in);
 
                 try {
-                    int MysticSelections = Input.nextInt();
-//                    if (MysticSelections == 1) {
-//                        stage3Mystic = true;
-//                    } else {
-//                        System.out.println(MysticSelections + " - Invalid option. Please try again.");
-//                        stage3Mystic = true;
-//                    }
+                    int MysticSelections = input.nextInt();
+
                     if (MysticSelections == 1) {
                         StageFour.stage4Final(selectedClass, selectedBoss);
-                        Input.nextLine();
+                        input.nextLine();
                         stage3Mystic = false;
                     } else {
                         System.out.println(MysticSelections + " - Invalid option. Please try again.");
                         stage3Mystic = true;
-                        Input.nextLine(); // Clear the scanner buffer
+                        input.nextLine(); // Clear the scanner buffer
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
                     stage3Mystic = true;
-                    Input.nextLine(); // Clear the scanner buffer
+                    input.nextLine(); // Clear the scanner buffer
                 }
             }
         }
@@ -127,30 +122,25 @@ public class StageThree {
 
                 // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
                 //if the dice lands 3/4 or 4/5 it goes to stage 3 of the story
-                Scanner Input = new Scanner(System.in);
+                Scanner input = new Scanner(System.in);
 
 
                 try {
-                    int combatSelection = Input.nextInt();
-//                    if (combatSelection == 1) {
-//                        stage3Combat = true;
-//                    } else {
-//                        System.out.println(combatSelection + " - Invalid option. Please try again.");
-//                        stage3Combat = true;
-//                    }
+                    int combatSelection = input.nextInt();
+
                     if (combatSelection == 1) {
                         StageFour.stage4Final(selectedClass, selectedBoss);
-                        Input.nextLine();
+                        input.nextLine();
                         stage3Combat = false;
                     } else {
                         System.out.println(combatSelection + " - Invalid option. Please try again.");
                         stage3Combat = true;
-                        Input.nextLine(); // Clear the scanner buffer
+                        input.nextLine(); // Clear the scanner buffer
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
                     stage3Combat = true;
-                    Input.nextLine();// Clear the scanner buffer
+                    input.nextLine();// Clear the scanner buffer
                 }
             }
         }
@@ -204,29 +194,24 @@ public class StageThree {
 
                 // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
                 //if the dice lands 3/4 or 4/5 it goes to stage 3 of the story
-                Scanner Input = new Scanner(System.in);
+                Scanner input = new Scanner(System.in);
 
                 try {
-                    int stealthSelection = Input.nextInt();
-//                    if (stealthSelection == 1) {
-//                        stage3Stealth = true;
-//                    } else {
-//                        System.out.println(stealthSelection + " - Invalid option. Please try again.");
-//                        stage3Stealth = true;
-//                    }
+                    int stealthSelection = input.nextInt();
+
                     if (stealthSelection == 1) {
                         StageFour.stage4Final(selectedClass, selectedBoss);
-                        Input.nextLine();
+                        input.nextLine();
                         stage3Stealth = false;
                     } else {
                         System.out.println(stealthSelection + " - Invalid option. Please try again.");
                         stage3Stealth = true;
-                        Input.nextLine(); // Clear the scanner buffer
+                        input.nextLine(); // Clear the scanner buffer
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
                     stage3Stealth = true;
-                    Input.nextLine(); // Clear the scanner buffer
+                    input.nextLine(); // Clear the scanner buffer
                 }
             }
         }
