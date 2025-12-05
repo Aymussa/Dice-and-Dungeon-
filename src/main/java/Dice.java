@@ -1,12 +1,12 @@
 public class Dice {
     public static int dice(int roll) {
         int rolling = (int) (Math.random() * roll) + 1;
-        System.out.println("You rolled a " + rolling);
-        
-        // Display ASCII art for 6-sided dice
         if (roll == 6) {
             printDie(rolling);
         }
+        System.out.println("You rolled a " + rolling +"\n");
+
+        // Display ASCII art for 6-sided dice
 
         if (rolling == 1 || rolling == 2) {
             //System.out.println("You rolled a " + rolling + " you lose!");

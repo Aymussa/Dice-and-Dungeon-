@@ -39,9 +39,9 @@ public class StageFour {
                     stands behind you, and the legend of your success will endure... 
                     """,selectedClass,selectedBoss);
             System.out.println(finalRoll5or6);
+            System.out.println("Please go to the winner file to see the winner art");
 
-            WriterWinner writerWinner = new WriterWinner();
-            writerWinner.hashCode();
+            WriterWinner.main();
             System.exit(0);
         }
     }

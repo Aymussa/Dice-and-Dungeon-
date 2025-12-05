@@ -4,7 +4,7 @@ import java.io.IOException;
 
 
 public class WriterWinner{
-    public static void main(String[] args) {
+    public static void main() {
         FileWriter myWriter = null;
         try {
             File myFile = new File("Winner.txt");
@@ -16,25 +16,26 @@ public class WriterWinner{
             }
 
             myWriter = new FileWriter(myFile);
-            myWriter.write("""
-                      __________________________________________________________
+
+            myWriter.write(""" 
+                       _________________________________________________________
                       |                                                         |
                       |        Congratulations YOU have won the game . !!       |
-                      | ________________________________________________________|  
-                      |     -_-     ____      ____        ____              _-  |  
-                      |_-_- _      |  _ \\   /  _ \\     |  _ \\       -_- _- - |
+                      | ________________________________________________________|
+                      |     -_-     ____      ____        ____              _-  |\s
+                      |_-_- _      |  _ \\   /  _ \\     |  _ \\       -_- _- - |\s
                       |            | | | |   >  _ </\\   | | | |                |\s
-                      |            | |_| |  /  <_\\ \/   | |_| |    _-_         |\s
+                      |            | |_| |  /  <_\\ \\/  | |_| |    _-_         |\s
                       | -_-        |____/  \\_____\\ \\  |____/            _-   |\s
-                      |                                                -_-      |
-                      |      .-'````````'.        '(`        .-'```````'-.      |
-                      |    .` |           `.      `)'      .` |           `.    |         \s
-                      |   /   |   ()        \\      U      /   |    ()       \\ |
+                      |                                                -_-      |\s
+                      |      .-'````````'.        '(`        .-'```````'-.      |\s
+                      |    .` |           `.      `)'      .` |           `.    |
+                      |   /   |   ()        \\      U      /   |    ()       \\ |\s
                       |  |    |    ;         | o   T   o |    |    ;         |  |
                       |  |    |     ;        |  .  |  .  |    |    ;         |  |
                       |  |    |     ;        |   . | .   |    |    ;         |  |
                       |  |    |     ;        |    .|.    |    |    ;         |  |
-                      |  |    |____;_________|     |     |    |____;_________|  | \s
+                      |  |    |____;_________|     |     |    |____;_________|  |
                       |  |   /  __ ;   -     |     !     |   /     `'() _ -  |  |
                       |  |  / __  ()        -|        -  |  /  __--      -   |  |
                       |  | /        __-- _   |   _- _ -  | /        __--_    |  |
@@ -46,7 +47,7 @@ public class WriterWinner{
             System.out.println("Successfully wrote to the file.");
 
         } catch (IOException exception) {
-            System.out.println("An IO expection occured");
+            System.out.println("An IO exception occurred");
         }
 //            finally{
 //                if (myWriter != null) {
