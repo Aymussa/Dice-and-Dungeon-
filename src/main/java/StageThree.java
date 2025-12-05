@@ -23,6 +23,8 @@ public class StageThree {
                     Survival comes at the price of failing your quest.
                     """,selectedBoss);
             System.out.println(mysticRoll3or4);
+            System.exit(0);
+
             //if the dice lands 3/4 or 4/5 it goes to stage 3 of the story - as this is a merger of the combat and stealth story
         } else if (roll >= 5 && roll <= 6) {
             String mysticRoll5or6 = String.format("""
@@ -32,11 +34,14 @@ public class StageThree {
 
             boolean stage3Mystic = true;
             while (stage3Mystic) {
-
                 String mysticRollLast = String.format("""
-                        As a %s you have come far.
-                        Only one final dice roll stands between you and victory.
-                        Press 1 to roll the dice one last time
+                               .-------.
+                              /   o   /| As a %s you have come far.
+                             /_______/o| Only one final dice roll 
+                             | o     | | stands between you and victory.
+                             |   o   |o/
+                             |     o |/ Press 1 to roll the dice one last time
+                             '-------'
                         """,selectedClass);
 
                 System.out.println(mysticRollLast);
@@ -48,21 +53,24 @@ public class StageThree {
 
                 try {
                     int MysticSelections = Input.nextInt();
-                    if (MysticSelections == 1) {
-                        stage3Mystic = true;
-                    } else {
-                        System.out.println(MysticSelections + " - Invalid option. Please try again.");
-                        stage3Mystic = true;
-                    }
+//                    if (MysticSelections == 1) {
+//                        stage3Mystic = true;
+//                    } else {
+//                        System.out.println(MysticSelections + " - Invalid option. Please try again.");
+//                        stage3Mystic = true;
+//                    }
                     if (MysticSelections == 1) {
                         StageFour.stage4Final(selectedClass, selectedBoss);
                         Input.nextLine();
                         stage3Mystic = false;
                     } else {
-                        System.out.println("invalid pick");
+                        System.out.println(MysticSelections + " - Invalid option. Please try again.");
+                        stage3Mystic = true;
+                        Input.nextLine(); // Clear the scanner buffer
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
+                    stage3Mystic = true;
                     Input.nextLine(); // Clear the scanner buffer
                 }
             }
@@ -71,12 +79,8 @@ public class StageThree {
 
 
     public static void stage3Combat(String selectedClass, String selectedBoss) {
-        //System.out.println("You rolled a " + Dice.dice(6));
-        boolean stage3Combat = true;
+        int roll = Dice.dice(6);
 
-
-        while (stage3Combat) {
-            int roll = Dice.dice(6);
             //roll 1/2 this is the end of the line
             if (roll >= 1 && roll <= 2) {
                 String combatRoll1or2 = String.format("""
@@ -91,13 +95,14 @@ public class StageThree {
 
             } else if (roll >= 3 && roll <= 4) {
 
-                //roll 3/4/5/6 this is the outcome if they pick number 3
+                //roll 3/4 this is the end of the line
                 String combatRoll3or4 = String.format("""
                         You face formidable foes in the ruins, fighting with all your might.
                         Despite bravery, the enemies prove too strong. Wounded, you withdraw,leaving
                         %s undisturbed. Your %s training saved your life, but victory eludes you.
                         """,selectedBoss,selectedClass);// the %s is a placeholder and will be replaced by the variable in order it is given
                 System.out.println(combatRoll3or4);
+                System.exit(0);
 
             } else if (roll >= 5 && roll <= 6) {
                 String combatRoll5or6 = String.format("""
@@ -105,15 +110,18 @@ public class StageThree {
                         """,selectedBoss);
                 System.out.println(combatRoll5or6);
 
+                boolean stage3Combat = true;
+                while (stage3Combat) {
                 String combatRollLast = String.format("""
-                        
+                              .-------.
+                              /   o   /| As a %s you have come far.
+                             /_______/o| Only one final dice roll 
+                             | o     | | stands between you and victory.
+                             |   o   |o/
+                             |     o |/ Press 1 to roll the dice one last time
+                             '-------'
                         """,selectedClass);
-                String combatRollLast2 = String.format("""
-                        As a %s you have come far.
-                        Only one final dice roll stands between you and victory.
-                        Press 1 to roll the dice one last time
-                        """,selectedClass);
-                System.out.println(combatRollLast2);
+                System.out.println(combatRollLast);
 
                 System.out.println("");
 
@@ -121,24 +129,27 @@ public class StageThree {
                 //if the dice lands 3/4 or 4/5 it goes to stage 3 of the story
                 Scanner Input = new Scanner(System.in);
 
+
                 try {
                     int combatSelection = Input.nextInt();
-                    if (combatSelection == 1) {
-                        stage3Combat = true;
-                    } else {
-                        System.out.println(combatSelection + " - Invalid option. Please try again.");
-                        stage3Combat = true;
-                    }
+//                    if (combatSelection == 1) {
+//                        stage3Combat = true;
+//                    } else {
+//                        System.out.println(combatSelection + " - Invalid option. Please try again.");
+//                        stage3Combat = true;
+//                    }
                     if (combatSelection == 1) {
                         StageFour.stage4Final(selectedClass, selectedBoss);
                         Input.nextLine();
                         stage3Combat = false;
                     } else {
-                        System.out.println("invalid pick");
+                        System.out.println(combatSelection + " - Invalid option. Please try again.");
+                        stage3Combat = true;
+                        Input.nextLine(); // Clear the scanner buffer
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
-                    System.out.println();
+                    stage3Combat = true;
                     Input.nextLine();// Clear the scanner buffer
                 }
             }
@@ -148,7 +159,7 @@ public class StageThree {
 
     public static void stage3Stealth(String selectedClass, String selectedBoss) {
         //System.out.println("You rolled a " + Dice.dice(6));
-        boolean stage3Stealth = true;
+
 
         int roll = Dice.dice(6);
         //roll 1/2 this is the end of the line
@@ -161,7 +172,7 @@ public class StageThree {
                     """,selectedClass,selectedBoss);// the %s is a placeholder and will be replaced by the variable in order it is given
             System.out.println(stealthRoll1or2);
             System.exit(0);
-
+            // roll 3/4 - this is the end of the line
         } else if (roll >= 3 && roll <= 4) {
             String stealthRoll3or4 = String.format("""
                     Shadows and traps nearly overwhelm you, but quick thinking lets
@@ -170,16 +181,22 @@ public class StageThree {
                     Your %s skills saved you, but at great cost.
                     """,selectedBoss,selectedClass);// the %s is a placeholder and will be replaced by the variable in order it is given
             System.out.println(stealthRoll3or4);
+            System.exit(0);
+
         } else if (roll >= 5 && roll <= 6) {
 
             //roll 5/6 this is the outcome if they pick number 3
             System.out.println("The runes blaze, and the chamber opens. " + selectedBoss + " stands ready.");
-
+            boolean stage3Stealth = true;
             while (stage3Stealth) {
                 String stealthRollLast = String.format("""
-                        As a %s you have come far.
-                        Only one final dice roll stands between you and victory.
-                        Press 1 to roll the dice one last time
+                               .-------.
+                              /   o   /| As a %s you have come far.
+                             /_______/o| Only one final dice roll 
+                             | o     | | stands between you and victory.
+                             |   o   |o/
+                             |     o |/ Press 1 to roll the dice one last time
+                             '-------'
                         """,selectedClass);
                 System.out.println(stealthRollLast);
 
@@ -191,21 +208,24 @@ public class StageThree {
 
                 try {
                     int stealthSelection = Input.nextInt();
-                    if (stealthSelection == 1) {
-                        stage3Stealth = true;
-                    } else {
-                        System.out.println(stealthSelection + " - Invalid option. Please try again.");
-                        stage3Stealth = true;
-                    }
+//                    if (stealthSelection == 1) {
+//                        stage3Stealth = true;
+//                    } else {
+//                        System.out.println(stealthSelection + " - Invalid option. Please try again.");
+//                        stage3Stealth = true;
+//                    }
                     if (stealthSelection == 1) {
                         StageFour.stage4Final(selectedClass, selectedBoss);
                         Input.nextLine();
                         stage3Stealth = false;
                     } else {
-                        System.out.println("invalid pick");
+                        System.out.println(stealthSelection + " - Invalid option. Please try again.");
+                        stage3Stealth = true;
+                        Input.nextLine(); // Clear the scanner buffer
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
+                    stage3Stealth = true;
                     Input.nextLine(); // Clear the scanner buffer
                 }
             }
