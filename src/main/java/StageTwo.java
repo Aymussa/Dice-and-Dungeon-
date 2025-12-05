@@ -50,18 +50,20 @@ public class StageTwo {
 
                     try {
                         int MysticSelections = Input.nextInt();
-                    if (MysticSelections >= 1 && MysticSelections <= 3) {
-                        stage2Mystic = true;
-                    } else {
-                        System.out.println(MysticSelections + " - Invalid option. Please try again.");
-                        stage2Mystic = true;
-                    }
+//                    if (MysticSelections >= 1 && MysticSelections <= 3) {
+//                        stage2Mystic = true;
+//                    } else {
+//                        System.out.println(MysticSelections + " - Invalid option. Please try again.");
+//                        stage2Mystic = true;
+//                    }
                         if (MysticSelections >= 1 && MysticSelections <= 3) {
                             StageThree.stage3Mystic(selectedClass, selectedBoss);
                             Input.nextLine();
                             stage2Mystic = false;
                         } else {
-                            System.out.println("invalid pick");
+                            System.out.println(MysticSelections + " - Invalid option. Please try again.");
+                            stage2Mystic = true;
+                            Input.nextLine(); // Clear the scanner buffer
                         }
                     } catch (Exception e) {
                         System.out.println("Invalid input. Please enter a number between 1 - 3.");
@@ -120,18 +122,20 @@ public class StageTwo {
                     Scanner Input = new Scanner(System.in);
                     try {
                         int combatSelection = Input.nextInt();
-                        if (combatSelection >= 1 && combatSelection <= 3) {
-                        stage2Combat = true;
-                    } else {
-                        System.out.println(combatSelection + " - Invalid option. Please try again.");
-                        stage2Combat = true;
-                    }
+//                        if (combatSelection >= 1 && combatSelection <= 3) {
+//                        stage2Combat = true;
+//                    } else {
+//                        System.out.println(combatSelection + " - Invalid option. Please try again.");
+//                        stage2Combat = true;
+//                    }
                         if (combatSelection >= 1 && combatSelection <= 3) {
                             StageThree.stage3Combat(selectedClass, selectedBoss);
                             Input.nextLine();
                             stage2Combat = false;
                         } else {
-                            System.out.println("invalid pick");
+                            System.out.println(combatSelection + " - Invalid option. Please try again.");
+                            stage2Combat = true;
+                            Input.nextLine(); // Clear the scanner buffer
                         }
                     } catch (Exception e) {
                         System.out.println("Invalid input. Please enter a number between 1 - 3.");
@@ -190,18 +194,20 @@ public class StageTwo {
 
                     try {
                         int stealthSelection = Input.nextInt();
-                    if (stealthSelection >= 1 && stealthSelection <= 3) {
-                        stage2Stealth = true;
-                    } else {
-                        System.out.println(stealthSelection + " - Invalid option. Please try again.");
-                        stage2Stealth = true;
-                    }
+//                    if (stealthSelection >= 1 && stealthSelection <= 3) {
+//                        stage2Stealth = true;
+//                    } else {
+//                        System.out.println(stealthSelection + " - Invalid option. Please try again.");
+//                        stage2Stealth = true;
+//                    }
                         if (stealthSelection >= 1 && stealthSelection <= 3) {
                             StageThree.stage3Stealth(selectedClass, selectedBoss);
                             Input.nextLine();
                             stage2Stealth = false;
                         } else {
-                            System.out.println("invalid pick");
+                            System.out.println(stealthSelection + " - Invalid option. Please try again.");
+                            stage2Stealth = true;
+                            Input.nextLine(); // Clear the scanner buffer
                         }
                     } catch (Exception e) {
                         System.out.println("Invalid input. Please enter a number between 1 - 3.");
