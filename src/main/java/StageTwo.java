@@ -68,7 +68,6 @@ public class StageTwo {
             }
     }
 
-
     public static void stage2Combat(String selectedClass, String selectedBoss) {
         //System.out.println("You rolled a " + Dice.dice(6));
 

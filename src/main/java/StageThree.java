@@ -35,13 +35,13 @@ public class StageThree {
             boolean stage3Mystic = true;
             while (stage3Mystic) {
                 String mysticRollLast = String.format("""
-                               .-------.
-                              /   o   /| As a %s you have come far.
-                             /_______/o| Only one final dice roll 
-                             | o     | | stands between you and victory.
-                             |   o   |o/
-                             |     o |/ Press 1 to roll the dice one last time
-                             '-------'
+                       .-------.
+                      /   o   /| As a %s you have come far.
+                     /_______/o| Only one final dice roll 
+                    | o     | | stands between you and victory.
+                    |   o   |o/
+                    |     o |/ Press 1 to roll the dice one last time
+                    '-------'
                         """,selectedClass);
 
                 System.out.println(mysticRollLast);
@@ -108,13 +108,13 @@ public class StageThree {
                 boolean stage3Combat = true;
                 while (stage3Combat) {
                 String combatRollLast = String.format("""
-                              .-------.
-                              /   o   /| As a %s you have come far.
-                             /_______/o| Only one final dice roll 
-                             | o     | | stands between you and victory.
-                             |   o   |o/
-                             |     o |/ Press 1 to roll the dice one last time
-                             '-------'
+                       .-------.
+                      /   o   /| As a %s you have come far.
+                     /_______/o| Only one final dice roll 
+                    | o     | | stands between you and victory.
+                    |   o   |o/
+                    |     o |/ Press 1 to roll the dice one last time
+                    '-------'
                         """,selectedClass);
                 System.out.println(combatRollLast);
 
@@ -180,13 +180,13 @@ public class StageThree {
             boolean stage3Stealth = true;
             while (stage3Stealth) {
                 String stealthRollLast = String.format("""
-                               .-------.
-                              /   o   /| As a %s you have come far.
-                             /_______/o| Only one final dice roll 
-                             | o     | | stands between you and victory.
-                             |   o   |o/
-                             |     o |/ Press 1 to roll the dice one last time
-                             '-------'
+                       .-------.
+                      /   o   /| As a %s you have come far.
+                     /_______/o| Only one final dice roll 
+                    | o     | | stands between you and victory.
+                    |   o   |o/
+                    |     o |/ Press 1 to roll the dice one last time
+                    '-------'
                         """,selectedClass);
                 System.out.println(stealthRollLast);
 
