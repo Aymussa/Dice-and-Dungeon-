@@ -15,6 +15,7 @@ public class Game {
             return bossOptions[option - 1];
         }return null;
     }
+    //Created this method to create the player object with the selected class passed through with switch statement
     public static Character createPlayer(String selectedClass) {
         Character player = null; //initialise the player to null and then assign it to the selected class with switch statement
         switch (selectedClass) {
@@ -33,26 +34,23 @@ public class Game {
         }
         return player;
     }
-
+    //This starts the game. Main method.
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-
-
         System.out.println("""
-                    +------------------------------------------------+
-                    |       _                                        |
-                    |      |  Hello and welcome to the D&D game!     |
-                    |  O===[=====================================-   |
-                    |      |_          Let's get started!            |
-                    |                                                |
-                    +------------------------------------------------+
-                """);
+            +------------------------------------------------+
+            |       _                                        |
+            |      |  Hello and welcome to the D&D game!     |
+            |  O===[=====================================-   |
+            |      |_          Let's get started!            |
+            |                                                |
+            +------------------------------------------------+
+            """);
         System.out.println("What is your name Adventurer? ");
 
         String playerName = input.nextLine();
-        System.out.println("\nWelcome, " + playerName + "! Let's begin your D&D adventure!");
-        System.out.println("");
+        System.out.println("Welcome, " + playerName + "! Let's begin your D&D adventure!\n");
 
         String selectedClass = "";
         String selectedBoss = "";
@@ -71,7 +69,6 @@ public class Game {
                     |                                                    |
                     +----------------------------------------------------+
                     """);
-            System.out.println();
 
             try {
                 int characterOptions = input.nextInt();
@@ -87,10 +84,10 @@ public class Game {
 
                     while (confirmClass) {
                         System.out.println("""
-                                        +---------------------------------------------+
-                                        |    Would you like to change character?      |
-                                        |                  yes / no                   |
-                                        +---------------------------------------------+
+                                +---------------------------------------------+
+                                |    Would you like to change character?      |
+                                |                  yes / no                   |
+                                +---------------------------------------------+
                                 """);
                         String characterChange = input.nextLine().toLowerCase();
                         System.out.println();
@@ -131,14 +128,14 @@ public class Game {
 
         while (finalBoss) {
             System.out.println("""
-                    +-----------------------------------------------+
-                    |   What Final boss would you like to defeat?   |
-                    |   -Please select from the following options-  |
-                    |_______________________________________________|
-                    |                                               |
-                    |   Option 1: Dragon    |   Option 2: Dark Elf  |
-                    |   Option 3: Cerberus  |   Option 4: Goblin    |
-                    +-----------------------------------------------+
+            +-----------------------------------------------+
+            |   What Final boss would you like to defeat?   |
+            |   -Please select from the following options-  |
+            |_______________________________________________|
+            |                                               |
+            |   Option 1: Dragon    |   Option 2: Dark Elf  |
+            |   Option 3: Cerberus  |   Option 4: Goblin    |
+            +-----------------------------------------------+
             """);
             try {
                 int boosOption = input.nextInt();
@@ -153,10 +150,10 @@ public class Game {
                     boolean finalBossChange = true;
                     while (finalBossChange) {
                         System.out.println("""
-                                        +---------------------------------------------+
-                                        |  Would you like to change your final boss?  |
-                                        |                  yes / no                   |
-                                        +---------------------------------------------+
+                                +---------------------------------------------+
+                                |  Would you like to change your final boss?  |
+                                |                  yes / no                   |
+                                +---------------------------------------------+
                                 """);
                         String responseBossOption = input.nextLine().toLowerCase();
                         System.out.println();
