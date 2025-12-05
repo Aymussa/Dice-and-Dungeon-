@@ -1,8 +1,8 @@
 # ⚅⚄⚃⚂⚁⚀ -Dice-and-Dungeon- ⚀⚁⚂⚃⚄⚅
-Dungeons &amp; Dragons game base where you roll a dice to determine the outcome of your story
+Dungeons and Dragons game base where you roll a dice to determine the outcome of your story
 
 ## Table of Contents ⚀⚁⚂⚃⚄⚅
- - [⚀ Description](#⚀description)
+ - [⚀ Description](#description)
  - [⚁ Features](#features)
  - [⚂ How to Run](#how-to-run)
  - [⚃ Contributing](#contributing)
@@ -19,8 +19,10 @@ This is a Dice and Dungeons game base where you roll a dice to determine the out
 
 ## How to Run
 1. Clone the repository
-2. Run the Game.java file
-3. Follow the prompts
+2. Open the repository in your preferred IDE
+3. Compile the Game.java file
+4. Run the Game.java file
+5. Follow the prompts
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.

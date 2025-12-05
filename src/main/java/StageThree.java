@@ -6,33 +6,42 @@ public class StageThree {
         int roll = Dice.dice(6);
         //roll 1/2 this is the end of the line
         if (roll >= 1 && roll <= 2) {
-            System.out.println("""
-                    Magical energy arcs around the chamber, responding violently to your """ + selectedClass + """
+            String mysticRoll1or2 = String.format("""
+                    Magical energy arcs around the chamber, responding violently to your %s
                     presence. You attempt to harness it, but the raw force backlashes. Sparks
-                    ignite, runes shatter, and the dungeon consumes you whole. """ + selectedBoss + """
-                     senses the disturbance, but your attempt ends in fiery ruin.
-                    """);
+                    ignite, runes shatter, and the dungeon consumes you whole. %s senses the
+                    disturbance, but your attempt ends in fiery ruin.
+                    """,selectedClass,selectedBoss);// the %s is a placeholder and will be replaced by the variable in order it is given
+            System.out.println(mysticRoll1or2);
+            System.exit(0);
+
         } else if (roll >= 3 && roll <= 4) {
-            System.out.println("""
+            String mysticRoll3or4 = String.format("""
                     The magic of the dungeon overwhelms your senses. You stumble
                     through twisting halls, runes burning around you. Eventually,
-                    you find a narrow escape, but the final seal prevents any progress toward """ + selectedBoss + """
-                    . Survival comes at the price of failing your quest.
-                    """);
-
-
+                    you find a narrow escape, but the final seal prevents any progress toward %s.
+                    Survival comes at the price of failing your quest.
+                    """,selectedBoss);
+            System.out.println(mysticRoll3or4);
+            //if the dice lands 3/4 or 4/5 it goes to stage 3 of the story - as this is a merger of the combat and stealth story
         } else if (roll >= 5 && roll <= 6) {
-
-            //roll 3/4/5/6 this is the outcome if they pick number 3
-            System.out.println("You emerge silently. " + selectedBoss + " lifts its head toward you, sensing your presence.");
+            String mysticRoll5or6 = String.format("""
+                    You emerge silently. %s lifts its head toward you, sensing your presence.
+                    """,selectedBoss);
+            System.out.println(mysticRoll5or6);
 
             boolean stage3Mystic = true;
             while (stage3Mystic) {
 
-                System.out.println("Press 1 for your final dice roll");
+                String mysticRollLast = String.format("""
+                        As a %s you have come far.
+                        Only one final dice roll stands between you and victory.
+                        Press 1 to roll the dice one last time
+                        """,selectedClass);
+
+                System.out.println(mysticRollLast);
 
                 System.out.println("");
-
                 // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
                 //if the dice lands 3/4 or 4/5 it goes to stage 3 of the story
                 Scanner Input = new Scanner(System.in);
@@ -70,28 +79,41 @@ public class StageThree {
             int roll = Dice.dice(6);
             //roll 1/2 this is the end of the line
             if (roll >= 1 && roll <= 2) {
-                System.out.println("""
+                String combatRoll1or2 = String.format("""
                         Stones tumble, weapons fall, and the ground shakes.
                         You struggle, pushing against debris and fallen enemies,
-                        but the weight is too much. As a """ + selectedClass +
-                        """
-                                strength cannot overcome sheer ruin. The dungeon’s power crushes you, leaving only silence
-                                """);
+                        but the weight is too much. As a %s strength cannot overcome
+                        sheer ruin. The dungeon’s power crushes you, leaving only silence
+                        """, selectedClass);
+                System.out.println(combatRoll1or2);
+                System.exit(0);
+
 
             } else if (roll >= 3 && roll <= 4) {
 
                 //roll 3/4/5/6 this is the outcome if they pick number 3
-                System.out.println("""
+                String combatRoll3or4 = String.format("""
                         You face formidable foes in the ruins, fighting with all your might.
                         Despite bravery, the enemies prove too strong. Wounded, you withdraw,leaving
-                        """);
-                System.out.println(selectedBoss + " undisturbed. Your " + selectedClass + " training saved your life,");
-                System.out.println("but victory eludes you.");
+                        %s undisturbed. Your %s training saved your life, but victory eludes you.
+                        """,selectedBoss,selectedClass);// the %s is a placeholder and will be replaced by the variable in order it is given
+                System.out.println(combatRoll3or4);
+
             } else if (roll >= 5 && roll <= 6) {
-                System.out.println("You stride forward confidently. The lair trembles as" + selectedBoss + " rises");
+                String combatRoll5or6 = String.format("""
+                        You stride forward confidently. The lair trembles as %s rises
+                        """,selectedBoss);
+                System.out.println(combatRoll5or6);
 
-
-                System.out.println("Press 1 for your final dice roll");
+                String combatRollLast = String.format("""
+                        
+                        """,selectedClass);
+                String combatRollLast2 = String.format("""
+                        As a %s you have come far.
+                        Only one final dice roll stands between you and victory.
+                        Press 1 to roll the dice one last time
+                        """,selectedClass);
+                System.out.println(combatRollLast2);
 
                 System.out.println("");
 
@@ -131,31 +153,35 @@ public class StageThree {
         int roll = Dice.dice(6);
         //roll 1/2 this is the end of the line
         if (roll >= 1 && roll <= 2) {
-            System.out.println("""
+            String stealthRoll1or2 = String.format("""
                     The stealthy shadows you sought to navigate turn against you.
-                    Darkness engulfs you, unseen claws or tendrils dragging you into the void.
-                    Even as a nimble """ + selectedClass +
-                    """
-                            you cannot escape the dungeon's wrath. """ + selectedBoss + """
-                     stirs above, indifferent.
-                    """);
+                    Darkness engulfs you, unseen force dragging you into the void.
+                    Even as a nimble %s you cannot escape the
+                    dungeon's wrath. %s stirs above, indifferent.
+                    """,selectedClass,selectedBoss);// the %s is a placeholder and will be replaced by the variable in order it is given
+            System.out.println(stealthRoll1or2);
+            System.exit(0);
+
         } else if (roll >= 3 && roll <= 4) {
-            System.out.println("""
-                    Shadows and traps nearly overwhelm you, but quick thinking lets you slip through.
-                    You emerge battered and shaken. The dungeon keeps its secrets, and """ + selectedBoss +
-                    """
-                            remains undefeated. Your """ + selectedClass +
-                    """
-                            skills saved you, but at great cost.
-                            """);
+            String stealthRoll3or4 = String.format("""
+                    Shadows and traps nearly overwhelm you, but quick thinking lets
+                    you slip through. You emerge battered and shaken. The dungeon
+                    keeps its secrets, and %s  remains undefeated.
+                    Your %s skills saved you, but at great cost.
+                    """,selectedBoss,selectedClass);// the %s is a placeholder and will be replaced by the variable in order it is given
+            System.out.println(stealthRoll3or4);
         } else if (roll >= 5 && roll <= 6) {
 
             //roll 5/6 this is the outcome if they pick number 3
             System.out.println("The runes blaze, and the chamber opens. " + selectedBoss + " stands ready.");
 
             while (stage3Stealth) {
-
-                System.out.println("Press 1 for your final dice roll");
+                String stealthRollLast = String.format("""
+                        As a %s you have come far.
+                        Only one final dice roll stands between you and victory.
+                        Press 1 to roll the dice one last time
+                        """,selectedClass);
+                System.out.println(stealthRollLast);
 
                 System.out.println("");
 

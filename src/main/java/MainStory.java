@@ -11,30 +11,16 @@ public class MainStory {
             while (storylineStart) {
                 //stage 1 of the story, origin story start
                 System.out.println("");
-                System.out.println("""
-                        +--------------------------------------------------------------+
-                        |You awaken in the shadowed ruins of The Fallen Gate,          |
-                        |the air thick with dust and echoing distant tremors.          |
-                        |As your senses return, you steady yourself —                  |
-                        |the resolve of a seasoned
-                         """ + selectedClass +
-                        """
-                                settles into your bones.  |
-                                Somewhere deep below, you hear a low rumble… the presence of   |
-                                """ + selectedBoss +
-                        """
-                                 stirs. Three passageways stretch before you, each leading |
-                                |deeper into the ancient dungeon.                              |
-                                """);
                 String StartLine = String.format("""
-                        +--------------------------------------------------------------+
-                        |You awaken in the shadowed ruins of The Fallen Gate,          |
-                        |the air thick with dust and echoing distant tremors.          |
-                        |As your senses return, you steady yourself —                  |
-                        |the resolve of a seasoned %s settles into your bones.      |
-                        |Somewhere deep below, you hear a low rumble… the presence of |
-                        |%s stirs. Three passageways stretch before you, each leading |
-                        |deeper into the ancient dungeon.                              |
+                        +------------------------------------------------------------------+
+                        |You awaken in the shadowed ruins of The Fallen Gate,              |
+                        |the air thick with dust and echoing distant tremors.              |
+                        |As your senses return, you steady yourself —                      |
+                        |the resolve of a seasoned %s settles into your bones.       |
+                        |Somewhere deep below, you hear a low rumble… the presence of      |
+                        |%s stirs. Three passageways stretch before you, each leading|
+                        |deeper into the ancient dungeon.                                  |
+                        +------------------------------------------------------------------+
                         """, selectedClass, selectedBoss);
                 System.out.println(StartLine);
                 boolean storyline = true;
@@ -115,6 +101,8 @@ public class MainStory {
                             """
                                     your journey ends here — before it begins.
                                     """);
+                    System.exit(0);// Exits the game
+
                 }
 
                 if (roll >= 3 && roll <= 4) {
@@ -129,7 +117,18 @@ public class MainStory {
                     while (stage1ForestOptionsOne) {
 
 
-                        System.out.println("1.Continue \n2.Duck Under Root \n3.Inspect Murals");
+                        System.out.println("""
+                                +---------------------------+
+                                |                           |
+                                |   what do you do next?    |
+                                |___________________________|
+                                |                           |
+                                |   1.Continue              |
+                                |   2.Duck Under Root       |
+                                |   3.Inspect Murals        |
+                                |                           |
+                                +---------------------------+
+                        """);
 
                         System.out.println("");
 
@@ -144,7 +143,7 @@ public class MainStory {
                             stage1ForestOptionsOne = true;
                         }
                         if (forestSelections >= 1 && forestSelections <= 3) {
-                            StageTwo.stage2Stealth(selectedClass, selectedBoss);
+                            StageTwo.stage2Stealth(selectedClass, selectedBoss);// this takes you to the next stage
                             Input.nextLine();
                             stage1ForestOptionsOne = false;
                         } else {
@@ -168,14 +167,26 @@ public class MainStory {
                     while (stage1ForestOptionsTwo) {
 
 
-                        System.out.println("1.Advance \n2.Touch Rune \n3.Climb Roots");
+                        System.out.println("""
+                        
+                                +---------------------------+
+                                |                           |
+                                |   what do you do next?    |
+                                |___________________________|
+                                |                           |
+                                |  1.Advance                |
+                                |  2.Touch Rune             |
+                                |  3.Climb Roots            |
+                                |                           |
+                                +---------------------------+
+                        
+                        """);
 
                         System.out.println("");
 
-                        // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
                         //if the dice lands 3/4 or 4/5 it goes to stage 2 of the story
-                        Scanner InputTwo = new Scanner(System.in);
-                        int forestSelectionsTwo = InputTwo.nextInt();
+                        Scanner input = new Scanner(System.in);
+                        int forestSelectionsTwo = input.nextInt();
                         if (forestSelectionsTwo >= 1 && forestSelectionsTwo <= 3) {
                             stage1ForestOptionsTwo = true;
                         } else {
@@ -183,8 +194,8 @@ public class MainStory {
                             stage1ForestOptionsTwo = true;
                         }
                         if (forestSelectionsTwo >= 1 && forestSelectionsTwo <= 3) {
-                            StageTwo.stage2Stealth(selectedClass, selectedBoss);
-                            InputTwo.nextLine();
+                            StageTwo.stage2Stealth(selectedClass, selectedBoss);// this takes you to the next stage
+                            input.nextLine();
                             stage1ForestOptionsTwo = false;
                         } else {
                             System.out.println("invalid pick");
@@ -206,27 +217,40 @@ public class MainStory {
         int roll = Dice.dice(6);
         //roll 1/2 this is the end of the line
         if (roll >= 1 && roll <= 2) {
-            System.out.println("""
+            String wetstoneRoll1or2 = String.format("""
                     The ruins shudder and shift beneath your feet.
                     A hidden passage collapses.
                     You scramble, but the dungeon rejects your presence.
                     Darkness swallows you, and you never move beyond the Fallen Gate.
-                    Even as a"""
-                    + selectedClass +
-                    """
-                            your journey ends here — before it begins.
-                            """);
+                    Even as a %s your journey ends here — before it begins.
+                    """,selectedClass);
+            System.out.println(wetstoneRoll1or2);
+            System.exit(0);
+
         } else if (roll >= 3 && roll <= 4) {
             //roll 3/4 this is the outcome if they pick number 2
-            System.out.println("""
+            String wetstoneRoll3or4 = String.format("""
                     Water trickles along slick stone.
                     The rhythmic boom from below shakes droplets loose,
-                    echoing the approach of """ + selectedBoss);
+                    echoing the approach of %s
+                    """,selectedBoss);
+            System.out.println(wetstoneRoll3or4);
 
             boolean stage1WetstoneOptionsOne = true;
             while (stage1WetstoneOptionsOne) {
 
-                System.out.println("1.Cross Ledge \n2.Wade Forward \n3.Toss Stone");
+                System.out.println("""
+                        +---------------------------+
+                        |                           |
+                        |   what do you do next?    |
+                        |___________________________|
+                        |                           |
+                        |  1.Cross Ledge            |
+                        |  2.Wade Forward           |
+                        |  3.Toss Stone             |
+                        |                           |
+                        +---------------------------+
+                """);
 
                 System.out.println("");
 
@@ -257,16 +281,29 @@ public class MainStory {
         }
         if (roll >= 5 && roll <= 6) {
             //roll 5/6 this is the outcome if they pick number 2
-            System.out.println("""
+            String stealthRoll5or6 = String.format("""
                     You glide over wet stone with expert balance.
                     Reflections distort unnaturally,
-                    as though the dungeon watches a [class] pass.
-                    """);
+                    as though the dungeon watches a %s pass.
+                    """,selectedClass);
+            System.out.println(stealthRoll5or6);
+
             boolean stage1WetstoneOptionsTwo = true;
             while (stage1WetstoneOptionsTwo) {
 
 
-                System.out.println("1.Leap Stream \n2.Probe Dept \n3.Hug Wall");
+                System.out.println("""
+                        +---------------------------+
+                        |                           |
+                        |   what do you do next?    |
+                        |___________________________|
+                        |                           |
+                        |  1.Leap Stream            |
+                        |  2.Probe Depth            |
+                        |  3.Hug Wall               |
+                        |                           |
+                        +---------------------------+
+                """);
 
                 System.out.println("");
 
@@ -309,23 +346,37 @@ public class MainStory {
                 int roll = Dice.dice(6);
                 //roll 1/2 this is the end of the line
                 if (roll >= 1 && roll <= 2) {
-                    System.out.println("""
+                    String stairwellRoll1or2 = String.format("""
                             The ruins shudder and shift beneath your feet.
                             A hidden trap snaps open.
                             You scramble, but the dungeon rejects your presence.
                             Darkness swallows you, and you never move beyond the Fallen Gate.
-                            Even as a """ + selectedClass + " your journey ends here — before it begins.");
+                            Even as a %s your journey ends here — before it begins.
+                            """,selectedClass);
+                    System.out.println(stairwellRoll1or2);
+                    System.exit(0);
+
                 } else if (roll >= 3 && roll <= 4) {
 
                     //roll 3/4 this is the outcome if they pick number 3
-                    System.out.println("""
-                            Cracks spiderweb across the descent. Cold wind rises,
-                            carrying faint hints of """ + selectedBoss + "— ash");
+
+                    System.out.println("Cracks spiderweb across the descent. Cold wind rises");
+                    System.out.println("carrying faint hints of "+ selectedBoss+ "'s power");
 
                     boolean stage1StariwellOptionsOne = true;
                     while (stage1StariwellOptionsOne) {
 
-                        System.out.println("1.Slow Step \n2.Brace Wall \n3.Jump Gap");
+                        System.out.println("""
+                                +---------------------------+
+                                |                           |
+                                |   what do you do next?    |
+                                |___________________________|
+                                |                           |
+                                |   1.Slow Step             |
+                                |   2.Brace Wall            |
+                                |   3.Jump Gap              |
+                                +---------------------------+
+                        """);
 
                         System.out.println("");
 
@@ -353,18 +404,25 @@ public class MainStory {
                             Input.nextLine(); // Clear the scanner buffer
                         }
                     }
-                }
-
-                if (roll >= 5 && roll <= 6) {
+                }if (roll >= 5 && roll <= 6) {
                     //roll 5/6 this is the outcome if they pick number 3
-                    System.out.println("""
-                            Your movement is clean, precise. The  """ + selectedClass +
-                            "must have passed this way as the signs are clear");
+                    System.out.println(" Your movement is clean, precise. The "+ selectedClass );
+                    System.out.println("must have passed this way as the signs are clear");
 
                     boolean stage1StariwellOptionsTwo = true;
                     while (stage1StariwellOptionsTwo) {
 
-                        System.out.println("1.Charge \n2.Listen \n3.Examine");
+                        System.out.println("""
+                                +---------------------------+
+                                |                           |
+                                |   what do you do next?    |
+                                |___________________________|
+                                |                           |
+                                |   1.Charge                |
+                                |   2.Listen                |
+                                |   3.Examine               |
+                                +---------------------------+
+                        """);
 
                         System.out.println("");
 

@@ -18,7 +18,7 @@ public class DiceTest {
         Assertions.assertTrue(result >= 1 && result <= 6);
     }
     @Test
-    public void shouldReturnRandomNumberDice() {
+    public void shouldReturnRandomNumberDiceCaseOne() {
         //assemble
         Dice dice = new Dice();
 
@@ -29,7 +29,7 @@ public class DiceTest {
         Assertions.assertTrue(result >= 1 && result <= 20);
     }
     @Test
-    public void shouldReturnRandomNumberDiceCaseOne() {
+    public void shouldReturnRandomNumberDiceCaseTwo() {
         //assemble
         Dice dice = new Dice();
 
@@ -39,5 +39,6 @@ public class DiceTest {
         //assert
         Assertions.assertTrue(result >= 1 && result <= 99999);
     }
+
 
 }

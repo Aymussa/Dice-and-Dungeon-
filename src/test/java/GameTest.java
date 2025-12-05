@@ -8,25 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class GameTest {
 
     @Test
-    public void ShouldReturnStringAsAnInputName() {
-        //assemble
-        //Game game = new Game();
-
-        //act
-//        String inputTestPlayerName = "TestPlayerName\n";
-//        String inputTestName = new String(inputTestPlayerName.getBytes());
-//        System.setIn(inputTestName);
-//
-//        Scanner scanner = new Scanner(System.in);
-//        String playerName = scanner.nextLine();
-//
-//        //assert
-//        Assertions.assertEquals("TestPlayerName", playerName);
-//        scanner.close();
-    }
-
-    @Test
-    public void ShouldReturnStringAsAnInputACharacterNumber() {
+    public void ShouldReturnStringAsAnInputACharacterNumberOne() {
         //assemble
 
         Game game = new Game();
@@ -39,9 +21,51 @@ class GameTest {
         assertEquals(result, "Wizard");
 
     }
+    @Test
+    public void ShouldReturnStringAsAnInputACharacterNumberTwo() {
+        //assemble
+
+        Game game = new Game();
+
+        //act
+        String result = Game.getCharacterClass(2);
+
+
+        //assert
+        assertEquals(result, "Knight");
+
+    }
+    @Test
+    public void ShouldReturnStringAsAnInputACharacterNumberThree() {
+        //assemble
+
+        Game game = new Game();
+
+        //act
+        String result = Game.getCharacterClass(3);
+
+
+        //assert
+        assertEquals(result, "Wood Elf");
+
+    }
+    @Test
+    public void ShouldReturnStringAsAnInputACharacterNumberFour() {
+        //assemble
+
+        Game game = new Game();
+
+        //act
+        String result = Game.getCharacterClass(4);
+
+
+        //assert
+        assertEquals(result, "High Elf");
+
+    }
 
     @Test
-    public void ShouldReturnStringAsAnInputABossNumber() {
+    public void ShouldReturnStringAsAnInputABossNumberOne() {
         //assemble
         Game game = new Game();
 
@@ -52,6 +76,161 @@ class GameTest {
         //assert
         assertEquals(result,"Dragon");
 
+    }
+    @Test
+    public void ShouldReturnStringAsAnInputABossNumberTwo() {
+        //assemble
+        Game game = new Game();
+
+        //act
+        String result = Game.getBoss(2) ;
+
+
+        //assert
+        assertEquals(result,"Dark Elf");
+
+    }
+    @Test
+    public void ShouldReturnStringAsAnInputABossNumberThree() {
+        //assemble
+        Game game = new Game();
+
+        //act
+        String result = Game.getBoss(3) ;
+
+
+        //assert
+        assertEquals(result,"Cerberus");
+
+    }
+    @Test
+    public void ShouldReturnStringAsAnInputABossNumberFour() {
+        //assemble
+        Game game = new Game();
+
+        //act
+        String result = Game.getBoss(4) ;
+
+
+        //assert
+        assertEquals(result,"Goblin");
+
+    }
+    @Test
+    public void ShouldReturnNullForInvalidInputCaseOne() {
+        //assemble
+        Game game = new Game();
+
+        //act
+        String result = Game.getCharacterClass(0) ;
+
+
+        //assert
+        assertNull(result,"invalid");
+
+    }
+    @Test
+    public void ShouldReturnNullForInvalidInputCaseTwo() {
+        //assemble
+        Game game = new Game();
+
+        //act
+        String result = Game.getBoss(0) ;
+
+
+        //assert
+        assertNull(result,"invalid");
+
+    }
+    @Test
+    public void ShouldReturnNullForInvalidInputCaseThree() {
+        //assemble
+        Game game = new Game();
+
+        //act
+        String result = Game.getCharacterClass(5) ;
+
+
+        //assert
+        assertNull(result,"invalid");
+
+    }
+    @Test
+    public void ShouldReturnNullForInvalidInputCaseFour() {
+        //assemble
+        Game game = new Game();
+
+        //act
+        String result = Game.getBoss(5) ;
+
+
+        //assert
+        assertNull(result,"invalid");
+
+    }
+    @Test
+    public void ShouldReturnWizardWhenCreatPlayerUserCharacterChoiceIsWizard() {
+        //assemble
+        Game game = new Game();
+
+        //act
+        Character result = Game.createPlayer("Wizard") ;
+
+
+        //assert
+        assertNotNull(result);
+        assertTrue(result instanceof HumanCharacter.Wizard);
+    }
+    @Test
+    public void ShouldReturnWoodElfWhenCreatPlayerUserCharacterChoiceIsWoodElf() {
+        //assemble
+        Game game = new Game();
+
+        //act
+        Character result = Game.createPlayer("Wood Elf") ;
+
+
+        //assert
+        assertNotNull(result);
+        assertTrue(result instanceof ElfCharacter.WoodElf);
+    }
+    @Test
+    public void ShouldReturnKnightWhenCreatPlayerUserCharacterChoiceIsKnight() {
+        //assemble
+        Game game = new Game();
+
+        //act
+        Character result = Game.createPlayer("Knight") ;
+
+
+        //assert
+        assertNotNull(result);
+        assertTrue(result instanceof HumanCharacter.Knight);
+    }
+    @Test
+    public void ShouldReturnHighElfWhenCreatPlayerUserCharacterChoiceIsHighElf() {
+        //assemble
+        Game game = new Game();
+
+        //act
+        Character result = Game.createPlayer("High Elf") ;
+
+
+        //assert
+        assertNotNull(result);
+        assertTrue(result instanceof ElfCharacter.HighElf);
+    }
+    @Test
+    public void ShouldReturnNullForInvalidInputCaseFive() {
+        //assemble
+        Game game = new Game();
+
+        //act
+        Character result = Game.createPlayer("invalid") ;
+
+
+        //assert
+        assertNull(result,"invalid");
     }
 }
 
