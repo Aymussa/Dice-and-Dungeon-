@@ -146,13 +146,11 @@ public class StageThree {
         }
     }
 
-
     public static void stage3Stealth(String selectedClass, String selectedBoss) {
-        //System.out.println("You rolled a " + Dice.dice(6));
-
+        // When this method is called the dice will roll and depending on the roll the story ends on 1/2/3/4 and or goes to stage 4 5/6
 
         int roll = Dice.dice(6);
-        //roll 1/2 this is the end of the line
+
         if (roll >= 1 && roll <= 2) {
             String stealthRoll1or2 = String.format("""
                     The stealthy shadows you sought to navigate turn against you.
@@ -162,7 +160,7 @@ public class StageThree {
                     """,selectedClass,selectedBoss);// the %s is a placeholder and will be replaced by the variable in order it is given
             System.out.println(stealthRoll1or2);
             System.exit(0);
-            // roll 3/4 - this is the end of the line
+
         } else if (roll >= 3 && roll <= 4) {
             String stealthRoll3or4 = String.format("""
                     Shadows and traps nearly overwhelm you, but quick thinking lets
@@ -174,8 +172,6 @@ public class StageThree {
             System.exit(0);
 
         } else if (roll >= 5 && roll <= 6) {
-
-            //roll 5/6 this is the outcome if they pick number 3
             System.out.println("The runes blaze, and the chamber opens. " + selectedBoss + " stands ready.");
             boolean stage3Stealth = true;
             while (stage3Stealth) {
@@ -192,8 +188,7 @@ public class StageThree {
 
                 System.out.println("");
 
-                // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
-                //if the dice lands 3/4 or 4/5 it goes to stage 3 of the story
+                //pressing 1 will be the final dice roll which will then take you to stage 4
                 Scanner input = new Scanner(System.in);
 
                 try {

@@ -232,5 +232,31 @@ class GameTest {
         //assert
         assertNull(result,"invalid");
     }
+
+    @Test
+    public void ShouldReturnWizardWhenCreatPlayerUserCharacterChoiceIsWizard() {
+        //assemble
+        Game game = new Game();
+
+        //act
+        Character result = Game.createPlayer("Wizard") ;
+
+
+        //assert
+        assertNotNull(result);
+        assertTrue(result instanceof HumanCharacter.Wizard);
+    }
+    @Test
+    public void shouldReturnInputNumberWhenSelectingOptionsOutputOnStageTwo(){
+        //assemble
+        Game game = new Game();
+
+        //act
+        int result = Game.StageTwo(1);
+
+        //assert
+        assertEquals(result, 1);
+    }
+
 }
 

@@ -118,11 +118,10 @@ public class Game {
                 System.out.println();
             }
         }
-        //HumanCharacter player = new HumanCharacter(selectedClass);
         // Create player object with the selected class passed through with switch statement
-        Character player = createPlayer(selectedClass);
 
-        //System.out.println(selectedClass);
+        // Main method calls the createPlayer method and passes the selectedClass to the player object
+        Character player = createPlayer(selectedClass);
 
         boolean finalBoss = true;
 

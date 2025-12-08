@@ -7,14 +7,6 @@ public class Dice {
         System.out.println("You rolled a " + rolling +"\n");
 
         // Display ASCII art for 6-sided dice
-
-        if (rolling == 1 || rolling == 2) {
-            //System.out.println("You rolled a " + rolling + " you lose!");
-        } else if (rolling == 3 || rolling == 4) {
-            //System.out.println("You rolled a " + rolling + "  you lose a little!");
-        } else {
-            //System.out.println("You rolled a " + rolling + ", you won");
-        }
         return rolling;
     }
 
