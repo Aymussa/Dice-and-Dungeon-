@@ -221,7 +221,7 @@ class GameTest {
         assertTrue(result instanceof ElfCharacter.HighElf);
     }
     @Test
-    public void ShouldReturnNullForInvalidInputCaseFive() {
+    public void ShouldReturnNullWhenCreatePlayerUserCharacterChoiceIsInvalid() {
         //assemble
         Game game = new Game();
 
@@ -234,28 +234,16 @@ class GameTest {
     }
 
     @Test
-    public void ShouldReturnWizardWhenCreatPlayerUserCharacterChoiceIsWizard() {
+    public void ShouldReturnNullWhenCreateBossUserChoiceIsInvalid() {
         //assemble
         Game game = new Game();
 
         //act
-        Character result = Game.createPlayer("Wizard") ;
+        Character result = Game.createBoss("invalid") ;
 
 
         //assert
-        assertNotNull(result);
-        assertTrue(result instanceof HumanCharacter.Wizard);
-    }
-    @Test
-    public void shouldReturnInputNumberWhenSelectingOptionsOutputOnStageTwo(){
-        //assemble
-        Game game = new Game();
-
-        //act
-        int result = Game.StageTwo(1);
-
-        //assert
-        assertEquals(result, 1);
+        assertNull(result,"invalid");
     }
 
 }

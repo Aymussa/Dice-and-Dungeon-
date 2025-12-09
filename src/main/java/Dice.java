@@ -6,12 +6,13 @@ public class Dice {
         }
         System.out.println("You rolled a " + rolling +"\n");
 
-        // Display ASCII art for 6-sided dice
         return rolling;
     }
 
     static void printDie(int rolling) {
-
+        /*
+         * This method is used to print the dice into the ASCII art as a display for the user to see the dice roll
+         */
         String dice1 = """
                 +-------+
                 |       |

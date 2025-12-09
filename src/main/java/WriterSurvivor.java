@@ -3,11 +3,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 
-public class WriterWinner{
+public class WriterSurvivor {
     public static void main() {
         FileWriter myWriter = null;
         try {
-            File myFile = new File("Winner.txt");
+            File myFile = new File("Survivor.txt");
 
             if (myFile.createNewFile()) {
                 System.out.println("New File created ");
@@ -20,7 +20,7 @@ public class WriterWinner{
             myWriter.write(""" 
                        _________________________________________________________
                       |                                                         |
-                      |        Congratulations YOU have won the game . !!       |
+                      | You survived the game, but you didnt win..This time !!  |
                       | ________________________________________________________|
                       |     -_-     ____      ____        ____              _-  |\s
                       |_-_- _      |  _ \\   /  _ \\     |  _ \\       -_- _- - |\s

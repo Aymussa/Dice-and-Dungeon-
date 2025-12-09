@@ -1,5 +1,5 @@
 # ⚅⚄⚃⚂⚁⚀ -Dice-and-Dungeon- ⚀⚁⚂⚃⚄⚅
-Dungeons and Dragons game base where you roll a dice to determine the outcome of your story
+Dungeons and Dragons game base where you roll a dice to determine the outcome of your story. When you start the game you get the chances to make your way through the dungeons by first selecting your character and then choosing a final boss to face. 
 
 ## Table of Contents ⚀⚁⚂⚃⚄⚅
  - [⚀ Description](#description)
@@ -10,7 +10,7 @@ Dungeons and Dragons game base where you roll a dice to determine the outcome of
  - [⚅ License](#license)
 
 ## Description
-This is a Dice and Dungeons game base where you roll a dice to determine the outcome of your story.
+This is a Dice and Dungeons game base where you get to choice of outcomes and from that choice your chances of succeeding determins on a dice roll. and at each stage you get to make a choice to get close to the final boss. and if you succeed you get the victory text, and if you fail you always try again.
 
 ## Features
 - Dice rolling

@@ -3,11 +3,13 @@ import java.util.Scanner;
 
 public class MainStory {
 
-    public static void startStory(String selectedClass, String selectedBoss) {
-
-        Scanner input = new Scanner(System.in);
-        //stage 1 of the story, origin story start here
-        System.out.println("");
+    public static void startStory(Character player, Character boss) {
+        /*
+        * This is where the story starts, where the player is awoken in the shadowed ruins of The Fallen Gate.
+        * The player is then given 3 options to choose from, each leading to a different path.
+        * each path is withing this mainStory method and is called when the player selects it.
+        * after which they would go to stageTwo, StageThree and finally StageFour.
+        */
         String StartLine = String.format("""
                 +------------------------------------------------------------------+
                 |You awaken in the shadowed ruins of The Fallen Gate,              |
@@ -18,7 +20,7 @@ public class MainStory {
                 |%s stirs. Three passageways stretch before you, each leading  |
                 |deeper into the ancient dungeon.                                  |
                 +------------------------------------------------------------------+
-                """, selectedClass, selectedBoss);
+                """, player.getName(), boss.getName());
         System.out.println(StartLine);
         boolean storyline = true;
         while (storyline) {
@@ -34,66 +36,58 @@ public class MainStory {
                             |                                    |
                             +------------------------------------+
                     """);
-            System.out.println("");
 
-            // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
-            //if the dice lands 3/4 or 4/5 it goes to stage 2 of the story
-            //Scanner input = new Scanner(System.in);
+            Scanner input = new Scanner(System.in);
             try {
+
                 int firstStage = input.nextInt();
                 if (firstStage >= 1 && firstStage <= 3) {
-                    storyline = true;
+                    storyline = false;
                 } else {
-                    System.out.println(firstStage + " - Invalid option. Please try again.");
-                    storyline = true;
+                    System.out.println(firstStage + " - Invalid option. Please try again. Please enter a number between 1 - 3.");
                 }
                 if (firstStage == 1) {
-                    MainStory.stage1Forest(selectedClass, selectedBoss);
+                    MainStory.stage1Forest(player, boss);
                     input.nextLine();
-                    storyline = false;
                 } else if (firstStage == 2) {
-                    MainStory.stage1Wetstone(selectedClass, selectedBoss);
+                    MainStory.stage1Wetstone(player, boss);
                     input.nextLine();
-                    storyline = false;
                 } else if (firstStage == 3) {
-                    MainStory.stage1Stairwell(selectedClass, selectedBoss);
+                    MainStory.stage1Stairwell(player, boss);
                     input.nextLine();
-                    storyline = false;
 
                 }
             } catch (Exception e) {
                 System.out.println("Invalid input. Please enter a number between 1 - 3.");
                 storyline = true;
-                input.nextLine(); // Clear the scanner buffer
+                input.nextLine();
             }
         }
     }
 
+    private static void stage1Forest(Character player, Character boss) {
+        Scanner input = new Scanner(System.in);
 
-    private static void stage1Forest(String selectedClass, String selectedBoss) {
         System.out.println("Selected: Forest Hall");
 
-        //System.out.println("You rolled a " + Dice.dice(6));
-
         int roll = Dice.dice(6);
-        //roll 1/2 this is the end of the line
         if (roll >= 1 && roll <= 2) {
+            System.out.println("YOU LOSE");
             String forestRoll1or2 = String.format("""
                     The ruins shudder and shift beneath your feet.
                     A hidden pathway collapses.
                     You scramble, but the dungeon rejects your presence.
                     Darkness swallows you, and you never move beyond the Fallen Gate.
                     Even as a %s your journey ends here — before it begins.
-                    """, selectedBoss);
+                    """, boss.getName());
             System.out.println(forestRoll1or2);
-            System.exit(0);// Exits the game
+            System.exit(0);
 
         } else if (roll >= 3 && roll <= 4) {
-            //roll 3/4 this is the outcome if they pick number 1
             String forestRoll3or4 = String.format("""
                     Roots coil along the walls like veins, ancient murals peeking through.
                     The ground trembles faintly — signs of %s stirring below.
-                    """, selectedBoss);
+                    """, boss.getName());
             System.out.println(forestRoll3or4);
 
             boolean stage1ForestOptionsOne = true;
@@ -112,28 +106,23 @@ public class MainStory {
                                 +---------------------------+
                         """);
 
-                System.out.println("");
-
-                // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
-                //if the dice lands 3/4 or 4/5 it goes to stage 2 of the story
-                Scanner input = new Scanner(System.in);
                 try {
                     int forestSelections = input.nextInt();
 
                     if (forestSelections >= 1 && forestSelections <= 3) {
-                        StageTwo.stage2Stealth(selectedClass, selectedBoss);// this takes you to the next stage
+                        StageTwo.stage2Stealth(player, boss);
                         input.nextLine();
                         stage1ForestOptionsOne = false;
                     } else {
-                        System.out.println(forestSelections + " - Invalid option. Please try again.");
+                        System.out.println(forestSelections + " - Invalid option. Please try again. Please enter a number between 1 - 3.");
                         stage1ForestOptionsOne = true;
-                        input.nextLine(); // Clear the scanner buffer
+                        input.nextLine();
 
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
                     stage1ForestOptionsOne = true;
-                    input.nextLine(); // Clear the scanner buffer
+                    input.nextLine();
                 }
             }
         } else if (roll >= 5 && roll <= 6) {
@@ -141,7 +130,7 @@ public class MainStory {
                     You move like a shadow between brambles.
                     Glowing runes react to your %s presence.
                     The air warms — %s lingers ahead.
-                    """, selectedClass, selectedBoss);
+                    """, player.getName(), boss.getName());
             System.out.println(forestRoll5or6);
 
             boolean stage1ForestOptionsTwo = true;
@@ -160,56 +149,49 @@ public class MainStory {
                                 +---------------------------+
                         """);
 
-                System.out.println("");
-
-                //if the dice lands 3/4 or 4/5 it goes to stage 2 of the story
-                Scanner input = new Scanner(System.in);
                 try {
                     int forestSelectionsTwo = input.nextInt();
 
                     if (forestSelectionsTwo >= 1 && forestSelectionsTwo <= 3) {
-                        StageTwo.stage2Stealth(selectedClass, selectedBoss);// this takes you to the next stage
+                        StageTwo.stage2Stealth(player, boss);
                         input.nextLine();
                         stage1ForestOptionsTwo = false;
                     } else {
-                        System.out.println(forestSelectionsTwo + " - Invalid option. Please try again.");
-                        stage1ForestOptionsTwo = true;
+                        System.out.println(forestSelectionsTwo + " - Invalid option. Please try again. Please enter a number between 1 - 3.");
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
                     stage1ForestOptionsTwo = true;
-                    input.nextLine(); // Clear the scanner buffer
+                    input.nextLine();
                 }
             }
         }
     }
 
-    private static void stage1Wetstone(String selectedClass, String selectedBoss) {
-        System.out.println("Selected: Wetstone Tunnels");
+    private static void stage1Wetstone(Character player, Character boss) {
         Scanner input = new Scanner(System.in);
 
-        //System.out.println("You rolled a " + Dice.dice(6));
+        System.out.println("Selected: Wetstone Tunnels");
 
         int roll = Dice.dice(6);
-        //roll 1/2 this is the end of the line
         if (roll >= 1 && roll <= 2) {
+            System.out.println("YOU LOSE");
             String wetstoneRoll1or2 = String.format("""
                     The ruins shudder and shift beneath your feet.
                     A hidden passage collapses.
                     You scramble, but the dungeon rejects your presence.
                     Darkness swallows you, and you never move beyond the Fallen Gate.
                     Even as a %s your journey ends here — before it begins.
-                    """, selectedClass);
+                    """, player.getName());
             System.out.println(wetstoneRoll1or2);
             System.exit(0);
 
         } else if (roll >= 3 && roll <= 4) {
-            //roll 3/4 this is the outcome if they pick number 2
             String wetstoneRoll3or4 = String.format("""
                     Water trickles along slick stone.
                     The rhythmic boom from below shakes droplets loose,
                     echoing the approach of %s
-                    """, selectedBoss);
+                    """, boss.getName());
             System.out.println(wetstoneRoll3or4);
 
             boolean stage1WetstoneOptionsOne = true;
@@ -228,37 +210,30 @@ public class MainStory {
                                 +---------------------------+
                         """);
 
-                System.out.println("");
-
-                // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
-                //if the dice lands 3/4 or 4/5 it goes to stage 2 of the story
-                //Scanner input = new Scanner(System.in);
                 try {
                     int forestSelections = input.nextInt();
 
                     if (forestSelections >= 1 && forestSelections <= 3) {
-                        StageTwo.stage2Stealth(selectedClass, selectedBoss);
+                        StageTwo.stage2Stealth(player, boss);
                         input.nextLine();
                         stage1WetstoneOptionsOne = false;
                     } else {
-                        System.out.println(forestSelections + " - Invalid option. Please try again.");
-                        stage1WetstoneOptionsOne = true;
-                        input.nextLine(); // Clear the scanner buffer
+                        System.out.println(forestSelections + " - Invalid option. Please try again. Please enter a number between 1-3.");
+                        input.nextLine();
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
                     stage1WetstoneOptionsOne = true;
-                    input.nextLine(); // Clear the scanner buffer
+                    input.nextLine();
                 }
             }
         }
         if (roll >= 5 && roll <= 6) {
-            //roll 5/6 this is the outcome if they pick number 2
             String stealthRoll5or6 = String.format("""
                     You glide over wet stone with expert balance.
                     Reflections distort unnaturally,
                     as though the dungeon watches a %s pass.
-                    """, selectedClass);
+                    """, player.getName());
             System.out.println(stealthRoll5or6);
 
             boolean stage1WetstoneOptionsTwo = true;
@@ -278,60 +253,50 @@ public class MainStory {
                                 +---------------------------+
                         """);
 
-                System.out.println("");
-
-                // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
-                //if the dice lands 3/4 or 4/5 it goes to stage 2 of the story
                 try {
                     int weststoneSelections = input.nextInt();
 
                     if (weststoneSelections >= 1 && weststoneSelections <= 3) {
-                        StageTwo.stage2Combat(selectedClass, selectedBoss);
+                        StageTwo.stage2Combat(player, boss);
                         input.nextLine();
                         stage1WetstoneOptionsTwo = false;
                     } else {
-                        System.out.println(weststoneSelections + " - Invalid option. Please try again.");
-                        stage1WetstoneOptionsTwo = true;
-                        input.nextLine(); // Clear the scanner buffer
+                        System.out.println(weststoneSelections + " - Invalid option. Please try again. Please enter a number between 1 - 3.");
+                        input.nextLine();
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
                     stage1WetstoneOptionsTwo = true;
-                    input.nextLine(); // Clear the scanner buffer
+                    input.nextLine();
                 }
             }
         }
     }
 
-
-    private static void stage1Stairwell(String selectedClass, String selectedBoss) {
+    private static void stage1Stairwell(Character player, Character boss) {
 
         Scanner input = new Scanner(System.in);
         System.out.println("Selected : Broken Stairwell");
-        //System.out.println("You rolled a " + Dice.dice(6));
 
         int roll = Dice.dice(6);
-        //roll 1/2 this is the end of the line
         if (roll >= 1 && roll <= 2) {
+            System.out.println("YOU LOSE");
             String stairwellRoll1or2 = String.format("""
                     The ruins shudder and shift beneath your feet.
                     A hidden trap snaps open.
                     You scramble, but the dungeon rejects your presence.
                     Darkness swallows you, and you never move beyond the Fallen Gate.
                     Even as a %s your journey ends here — before it begins.
-                    """, selectedClass);
+                    """, player.getName());
             System.out.println(stairwellRoll1or2);
             System.exit(0);
 
         } else if (roll >= 3 && roll <= 4) {
-
-            //roll 3/4 this is the outcome if they pick number 3
-
             System.out.println("Cracks spiderweb across the descent. Cold wind rises");
-            System.out.println("carrying faint hints of " + selectedBoss + "'s power");
+            System.out.println("carrying faint hints of " + boss.getName() + "'s power");
 
-            boolean stage1StariwellOptionsOne = true;
-            while (stage1StariwellOptionsOne) {
+            boolean stage1StairwellOptionsOne = true;
+            while (stage1StairwellOptionsOne) {
 
                 System.out.println("""
                                 +---------------------------+
@@ -345,37 +310,30 @@ public class MainStory {
                                 +---------------------------+
                         """);
 
-                System.out.println("");
 
-
-                // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
-                //if the dice lands 3/4 or 4/5 it goes to stage 2 of the story
-                //Scanner Input = new Scanner(System.in);
                 try {
                     int stairwellSelections = input.nextInt();
 
                     if (stairwellSelections >= 1 && stairwellSelections <= 3) {
-                        StageTwo.stage2Combat(selectedClass, selectedBoss);
+                        StageTwo.stage2Combat(player, boss);
                         input.nextLine();
-                        stage1StariwellOptionsOne = false;
+                        stage1StairwellOptionsOne = false;
                     } else {
-                        System.out.println(stairwellSelections + " - Invalid option. Please try again.");
-                        stage1StariwellOptionsOne = true;
+                        System.out.println(stairwellSelections + " - Invalid option. Please try again. Please enter a number between 1 - 3.");
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
-                    stage1StariwellOptionsOne = true;
-                    input.nextLine(); // Clear the scanner buffer
+                    stage1StairwellOptionsOne = true;
+                    input.nextLine();
                 }
             }
         }
         if (roll >= 5 && roll <= 6) {
-            //roll 5/6 this is the outcome if they pick number 3
-            System.out.println(" Your movement is clean, precise. The " + selectedClass);
+            System.out.println(" Your movement is clean, precise. The " + player.getName());
             System.out.println("must have passed this way as the signs are clear");
 
-            boolean stage1StariwellOptionsTwo = true;
-            while (stage1StariwellOptionsTwo) {
+            boolean stage1StairwellOptionsTwo = true;
+            while (stage1StairwellOptionsTwo) {
 
                 System.out.println("""
                                 +---------------------------+
@@ -389,26 +347,20 @@ public class MainStory {
                                 +---------------------------+
                         """);
 
-                System.out.println("");
-
-                // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
-                //if the dice lands 3/4 or 4/5 it goes to stage 2 of the story
-                //Scanner Input = new Scanner(System.in);
                 try {
                     int stairwellSelections = input.nextInt();
 
                     if (stairwellSelections >= 1 && stairwellSelections <= 3) {
-                        StageTwo.stage2Mystic(selectedClass, selectedBoss);
+                        StageTwo.stage2Mystic(player, boss);
                         input.nextLine();
-                        stage1StariwellOptionsTwo = false;
+                        stage1StairwellOptionsTwo = false;
                     } else {
-                        System.out.println(stairwellSelections + " - Invalid option. Please try again.");
-                        stage1StariwellOptionsTwo = true;
+                        System.out.println(stairwellSelections + " - Invalid option. Please try again. Please enter a number between 1 - 3.");
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
-                    stage1StariwellOptionsTwo = true;
-                    input.nextLine(); // Clear the scanner buffer
+                    stage1StairwellOptionsTwo = true;
+                    input.nextLine();
                 }
             }
         }

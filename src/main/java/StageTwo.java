@@ -2,26 +2,29 @@ import java.util.Scanner;
 
 public class StageTwo {
 
-    public static void stage2Mystic(String selectedClass, String selectedBoss) {
+    public static void stage2Mystic(Character player, Character boss) {
+        Scanner input = new Scanner(System.in);
 
-        // When this method is called the dice will roll and depending on the roll the story ends on 1/2 or goes to stage 3 on 3/4/5/6
         int roll = Dice.dice(6);
 
         if (roll >= 1 && roll <= 2) {
+            System.out.println("YOU LOSE");
             String mysticRoll1or2 = String.format("""
                     The dungeon is alive with peril. Roots snap. You claw, but gravity,
                     overwhelms you. The echo of %s passes unseen above as...
                     your story ends in the cold, unyielding depths.
-                    """, selectedBoss);
-            System.out.println(mysticRoll1or2); // prints the string format
+                    """, boss.getName());
+            System.out.println(mysticRoll1or2);
             System.exit(0);
 
         } else if (roll >= 3 && roll <= 6) {
+            // this is where I merged the story so that the story does not extend any further outputs
+
             String mysticRoll3to6 = String.format("""
-                    Runes pulse beneath the dust, reacting to your presence as a 
+                    Runes pulse beneath the dust, reacting to your presence as a
                     %s A magical humming grows — a heartbeat from %s
-                    """, selectedClass, selectedBoss); // the %s is a placeholder and will be replaced by the variable in order it is given
-            System.out.println(mysticRoll3to6);// this prints the string format
+                    """, player.getName(), boss.getName());
+            System.out.println(mysticRoll3to6);
             boolean stage2Mystic = true;
             while (stage2Mystic) {
 
@@ -36,58 +39,53 @@ public class StageTwo {
                         |   3.Break Seal            |
                         +---------------------------+
                         """);
-                System.out.println("");
-
-                // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
-                //if the dice lands 3/4 or 4/5 it goes to stage 3 of the story
-                Scanner input = new Scanner(System.in);
 
                 try {
                     int MysticSelections = input.nextInt();
-                    // this is where I merged the story so that the story does not extend the output to 128 different outputs
+                    // this is where I merged the story so that the story does not extend any further outputs
 
                     if (MysticSelections >= 1 && MysticSelections <= 3) {
-                        StageThree.stage3Mystic(selectedClass, selectedBoss);
+                        StageThree.stage3Mystic(player, boss);
                         input.nextLine();
                         stage2Mystic = false;
                     } else {
-                        System.out.println(MysticSelections + " - Invalid option. Please try again.");
-                        stage2Mystic = true;
-                        input.nextLine(); // Clear the scanner buffer
+                        System.out.println(MysticSelections + " - Invalid option. Please try again. Please enter a number between 1 - 3.");
+                        input.nextLine();
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
-                    input.nextLine(); // Clear the scanner buffer
+                    stage2Mystic = true;
+                    input.nextLine();
                 }
             }
         }
     }
 
-    public static void stage2Combat(String selectedClass, String selectedBoss) {
-        // When this method is called the dice will roll and depending on the roll the story ends on 1/2 or goes to stage 3 on 3/4/5/6
+    public static void stage2Combat(Character player, Character boss) {
+        Scanner input = new Scanner(System.in);
 
         int roll = Dice.dice(6);
 
         if (roll >= 1 && roll <= 2) {
+            System.out.println("YOU LOSE");
             String combatRoll1or2 = String.format("""
                     The dungeon is alive with peril. Water surges.
                     You swim, but the current overwhelms you.
-                    The echo of %s passes unseen above 
+                    The echo of %s passes unseen above
                     as your story ends in the cold, unyielding depths.
-                    """, selectedBoss);
-            System.out.println(combatRoll1or2); // this prints the string format
+                    """, boss.getName());
+            System.out.println(combatRoll1or2);
             System.exit(0);
 
-
         } else if (roll >= 3 && roll <= 6) {
+            // this is where I merged the story so that the story does not extend any further outputs
 
-            //roll 3/4/5/6 this is the outcome if they pick number 3
             String combatRoll3to6 = String.format("""
                     Rusting weapons, crushed armor, and deep gouges line the hall.
                     Heavy air presses down as echoes of old battles whisper your
-                    approach toward %s 
-                    """, selectedBoss);
-            System.out.println(combatRoll3to6);//this prints the string format
+                    approach toward %s
+                    """, boss.getName());
+            System.out.println(combatRoll3to6);
             boolean stage2Combat = true;
             while (stage2Combat) {
 
@@ -103,52 +101,48 @@ public class StageTwo {
                                 +---------------------------+
                         """);
 
-                System.out.println("");
-
-                // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
-                //if the dice lands 3/4 or 4/5 it goes to stage 3 of the story
-                Scanner input = new Scanner(System.in);
                 try {
                     int combatSelection = input.nextInt();
-                    // this is where I merged the story so that the story does not extend the output to 128 different outputs
+                    // this is where I merged the story so that the story does not extend any further outputs
 
                     if (combatSelection >= 1 && combatSelection <= 3) {
-                        StageThree.stage3Combat(selectedClass, selectedBoss);
+                        StageThree.stage3Combat(player, boss);
                         input.nextLine();
                         stage2Combat = false;
                     } else {
-                        System.out.println(combatSelection + " - Invalid option. Please try again.");
-                        stage2Combat = true;
-                        input.nextLine(); // Clear the scanner buffer
+                        System.out.println(combatSelection + " - Invalid option. Please try again. Please enter a number between 1 - 3.");
+                        input.nextLine();
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
-                    input.nextLine(); // Clear the scanner buffer
+                    stage2Combat = true;
+
+                    input.nextLine();
                 }
             }
         }
     }
 
-    public static void stage2Stealth(String selectedClass, String selectedBoss) {
-        // When this method is called the dice will roll and depending on the roll the story ends on 1/2 or goes to stage 3 on 3/4/5/6
+    public static void stage2Stealth(Character player, Character boss) {
+        Scanner input = new Scanner(System.in);
 
         int roll = Dice.dice(6);
         if (roll >= 1 && roll <= 2) {
+            System.out.println("YOU LOSE");
             String StealthRoll1or2 = String.format("""
                     The dungeon is alive with peril. Water surges. You swim,
-                    but the current overwhelms you.The echo of %s 
+                    but the current overwhelms you.The echo of %s
                     passes unseen above as your story ends in the cold, unyielding depths.
-                    """, selectedBoss);
+                    """, boss.getName());
             System.out.println(StealthRoll1or2);
             System.exit(0);
 
         } else if (roll >= 3 && roll <= 6) {
 
-            //roll 3/4/5/6 this is the outcome if they pick number 3
             String StealthRoll3or4or5or6 = String.format("""
-                    You move quietly through torchless halls. Distant patrols pass by. 
+                    You move quietly through torchless halls. Distant patrols pass by.
                     The stone vibrates occasionally — a sign %s shifts somewhere below.
-                    """, selectedBoss);
+                    """, boss.getName());
             System.out.println(StealthRoll3or4or5or6);
 
             boolean stage2Stealth = true;
@@ -157,7 +151,7 @@ public class StageTwo {
                 System.out.println("""
                         +---------------------------+
                         |                           |
-                        |   what do you do next?    |
+                        |    what do you do next?   |
                         |___________________________|
                         |                           |
                         |   1.Hide                  |
@@ -166,27 +160,23 @@ public class StageTwo {
                         +---------------------------+
                         """);
 
-                System.out.println("");
-
-                // after user picks one of the options and if the dice lands on 1/2 their story ends regardless of the options picked
-                //if the dice lands 3/4 or 4/5 it goes to stage 3 of the story
-                Scanner input = new Scanner(System.in);
 
                 try {
                     int stealthSelection = input.nextInt();
+                    // this is where I merged the story so that the story does not extend any further outputs
 
                     if (stealthSelection >= 1 && stealthSelection <= 3) {
-                        StageThree.stage3Stealth(selectedClass, selectedBoss);
+                        StageThree.stage3Stealth(player, boss);
                         input.nextLine();
                         stage2Stealth = false;
                     } else {
-                        System.out.println(stealthSelection + " - Invalid option. Please try again.");
-                        stage2Stealth = true;
-                        input.nextLine(); // Clear the scanner buffer
+                        System.out.println(stealthSelection + " - Invalid option. Please try again. Please enter a number between 1 - 3.");
+                        input.nextLine();
                     }
                 } catch (Exception e) {
                     System.out.println("Invalid input. Please enter a number between 1 - 3.");
-                    input.nextLine(); // Clear the scanner buffer
+                    stage2Stealth = true;
+                    input.nextLine();
                 }
             }
         }
