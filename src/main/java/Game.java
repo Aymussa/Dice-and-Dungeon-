@@ -1,11 +1,13 @@
 import java.util.Scanner;
 /*
- * This is where i create a Game class, which will have the logic and method outside the main so that i can test the code
+ * This is where I create the Game class,
+ * I kept the logic in methods outside the main so that I can test the code
  */
 public class Game {
     public static String getCharacterClass(int option){
         /*
-        *This method is used to take in the option 1/2/3/4 as the user input and return string array
+        *This method takes the user options 1/2/3/4  and returns the matching character class as a string.
+        * if the option is not between 1-4 it returns null
         */
         String[] characterClasses = {"Wizard", "Knight", "Wood Elf", "High Elf"};
         if ( option >= 1 && option <= 4) {
@@ -13,7 +15,9 @@ public class Game {
         }return null;
     }
 
-    //Created this method to create the player object with the selected class passed through with switch statement
+    /*I created this method to build the player object. It takes the selected class name
+    * and uses a switch statement to create the correct Character subclass.
+    */
     public static Character createPlayer(String selectedClass) {
         Character player = null; //initialise the player to null and then assign it to the selected class with switch statement
         switch (selectedClass) {
@@ -32,8 +36,9 @@ public class Game {
         }
         return player;
     }
-    /**
-     *This method is used to take in the option 1/2/3/4 as the user input and return string array
+    /*
+     *This method takes the user boss option 1/2/3/4 and returns the matching boss as a string.
+     * if the option is not between 1-4 it returns null
      */
     public static String getBoss(int option){
         String[] bossOptions = {"Dragon", "Dark Elf", "Cerberus", "Goblin"};
@@ -41,8 +46,9 @@ public class Game {
             return bossOptions[option - 1];
         }return null;
     }
-    /**
-     * This method is used to create the boss object with the selected boss passed through with switch statement
+    /*
+     *I created this method to build the boss object. It takes the selected boss name
+     * and uses a switch statement to create the correct BossCharacter subclass.
      */
     public static Character createBoss(String selectedBoss) {
         Character boss = null; //initialise the boss to null and then assign it to the selected boss with switch statement
@@ -63,8 +69,11 @@ public class Game {
         return boss;
     }
 
-    /**
+    /*
      * This starts the game Class. Main method to run the game.
+     * This is where the game logic is implemented by first asking for the name of the player and then letting the player choose their character class.
+     * this creates the player object and then asking for user boss option and then creating the boss object.
+     * Then the game starts and it will continue until the player loses or wins
      */
     public static void main(String[] args) {
 
@@ -83,6 +92,7 @@ public class Game {
         String playerName = input.nextLine();
         System.out.println("Welcome, " + playerName + "! Let's begin your D&D adventure!\n");
 
+        //initialise the selected class and boss to an empty string, then assign it to the selected class or boss with switch statement
         String selectedClass = "";
         String selectedBoss = "";
 
@@ -143,9 +153,9 @@ public class Game {
                 System.out.println();
             }
         }
-        // Create player object with the selected class passed through with switch statement
 
-        // Main method calls the createPlayer method and passes the selectedClass to the player object
+        // Here I create the player object using the selectedClass.
+        // The main method calls createPlayer(selectedClass), which uses a switch to build the right Character type.
         Character player = createPlayer(selectedClass);
 
         boolean finalBoss = true;

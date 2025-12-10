@@ -9,6 +9,14 @@ public class StageTwo {
 
         if (roll >= 1 && roll <= 2) {
             System.out.println("YOU LOSE");
+            System.out.println("""
+                        .-'~~~`-.
+                      .'         `.
+                      |  R  I  P  |
+                      |           |
+                      |           |
+                    \\\\|_/\\\\_/__//\\|//
+                    """);
             String mysticRoll1or2 = String.format("""
                     The dungeon is alive with peril. Roots snap. You claw, but gravity,
                     overwhelms you. The echo of %s passes unseen above as...
@@ -68,6 +76,14 @@ public class StageTwo {
 
         if (roll >= 1 && roll <= 2) {
             System.out.println("YOU LOSE");
+            System.out.println("""
+                        .-'~~~`-.
+                      .'         `.
+                      |  R  I  P  |
+                      |           |
+                      |           |
+                    \\\\|_/\\\\_/__//\\|//
+                    """);
             String combatRoll1or2 = String.format("""
                     The dungeon is alive with peril. Water surges.
                     You swim, but the current overwhelms you.
@@ -129,6 +145,14 @@ public class StageTwo {
         int roll = Dice.dice(6);
         if (roll >= 1 && roll <= 2) {
             System.out.println("YOU LOSE");
+            System.out.println("""
+                        .-'~~~`-.
+                      .'         `.
+                      |  R  I  P  |
+                      |           |
+                      |           |
+                    \\\\|_/\\\\_/__//\\|//
+                    """);
             String StealthRoll1or2 = String.format("""
                     The dungeon is alive with peril. Water surges. You swim,
                     but the current overwhelms you.The echo of %s
@@ -159,7 +183,6 @@ public class StageTwo {
                         |   3.Slip Past             |
                         +---------------------------+
                         """);
-
 
                 try {
                     int stealthSelection = input.nextInt();

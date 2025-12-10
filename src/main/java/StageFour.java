@@ -8,6 +8,14 @@ public class StageFour {
         int roll = Dice.dice(6);
         if (roll >= 1 && roll <= 2) {
             System.out.println("YOU LOSE");
+            System.out.println("""
+                        .-'~~~`-.
+                      .'         `.
+                      |  R  I  P  |
+                      |           |
+                      |           |
+                    \\\\|_/\\\\_/__//\\|//
+                    """);
             String finalRoll1or2 = String.format("""
                     Despite your courage and skill as a %s
                     %s proves too powerful. You fight valiantly,
@@ -16,10 +24,12 @@ public class StageFour {
                     """,player.getName(),boss.getName(),boss.getName());
             System.out.println(finalRoll1or2);
             WriterDefeated.main();
+            System.out.println("Please go the the Defeated file to see the defeated art");
             System.exit(0);
 
         } else if (roll >= 3 && roll <= 4) {
             System.out.println("YOU LOSE, HOWEVER YOU SURVIVED!!! COUNT YOURSELF LUCKY AS YOU LIVE TO TELL THE TALE");
+            System.out.println("[♥] [♡] [♡] [♡] [♡] ");
             String finalRoll3or4 = String.format("""
                     You narrowly survive the battle with %s retreating wounded.
                     The dungeon trembles as your adversary stands victorious.
@@ -28,6 +38,7 @@ public class StageFour {
                     """,boss.getName());
             System.out.println(finalRoll3or4);
             WriterSurvivor.main();
+            System.out.println("Please go to the Survivor file to see the survivor art ");
             System.exit(0);
 
         } else if (roll >= 5 && roll <= 6) {
@@ -38,7 +49,7 @@ public class StageFour {
                     stands behind you, and the legend of your success will endure...
                     """,player.getName(),boss.getName());
             System.out.println(finalRoll5or6);
-            System.out.println("Please go to the winner file to see the winner art");
+            System.out.println("Please go to the Winner file to see the winner art");
 
             WriterWinner.main();
             System.exit(0);

@@ -1,7 +1,10 @@
 public class Dice {
+    /*
+     * This Class implements the dice rolling logic so that i can use it at every option outcome for the user inpit
+     */
     public static int dice(int roll) {
         int rolling = (int) (Math.random() * roll) + 1;
-        if (roll == 6) {
+        if (roll == 6 ) {
             printDie(rolling);
         }
         System.out.println("You rolled a " + rolling +"\n");

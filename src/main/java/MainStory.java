@@ -73,6 +73,14 @@ public class MainStory {
         int roll = Dice.dice(6);
         if (roll >= 1 && roll <= 2) {
             System.out.println("YOU LOSE");
+            System.out.println("""
+                        .-'~~~`-.
+                      .'         `.
+                      |  R  I  P  |
+                      |           |
+                      |           |
+                    \\\\|_/\\\\_/__//\\|//
+                    """);
             String forestRoll1or2 = String.format("""
                     The ruins shudder and shift beneath your feet.
                     A hidden pathway collapses.
@@ -176,6 +184,14 @@ public class MainStory {
         int roll = Dice.dice(6);
         if (roll >= 1 && roll <= 2) {
             System.out.println("YOU LOSE");
+            System.out.println("""
+                        .-'~~~`-. 
+                      .'         `.
+                      |  R  I  P  |
+                      |           |
+                      |           |
+                    \\\\|_/\\\\_/__//\\|//
+                    """);
             String wetstoneRoll1or2 = String.format("""
                     The ruins shudder and shift beneath your feet.
                     A hidden passage collapses.
@@ -281,6 +297,14 @@ public class MainStory {
         int roll = Dice.dice(6);
         if (roll >= 1 && roll <= 2) {
             System.out.println("YOU LOSE");
+            System.out.println("""
+                        .-'~~~`-.
+                      .'         `.
+                      |  R  I  P  |
+                      |           |
+                      |           |
+                    \\\\|_/\\\\_/__//\\|//
+                    """);
             String stairwellRoll1or2 = String.format("""
                     The ruins shudder and shift beneath your feet.
                     A hidden trap snaps open.

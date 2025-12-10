@@ -6,6 +6,14 @@ public class StageThree {
         int roll = Dice.dice(6);
         if (roll >= 1 && roll <= 2) {
             System.out.println("YOU LOSE");
+            System.out.println("""
+                        .-'~~~`-.
+                      .'         `.
+                      |  R  I  P  |
+                      |           |
+                      |           |
+                    \\\\|_/\\\\_/__//\\|//
+                    """);
             String mysticRoll1or2 = String.format("""
                     Magical energy arcs around the chamber, responding violently to your %s
                     presence. You attempt to harness it, but the raw force backlashes. Sparks
@@ -17,6 +25,14 @@ public class StageThree {
 
         } else if (roll >= 3 && roll <= 4) {
             System.out.println("YOU LOSE");
+            System.out.println("""
+                        .-'~~~`-.
+                      .'         `.
+                      |  R  I  P  |
+                      |           |
+                      |           |
+                    \\\\|_/\\\\_/__//\\|//
+                    """);
             String mysticRoll3or4 = String.format("""
                     The magic of the dungeon overwhelms your senses. You stumble
                     through twisting halls, runes burning around you. Eventually,
@@ -77,6 +93,14 @@ public class StageThree {
             //roll 1/2 this is the end of the line
             if (roll >= 1 && roll <= 2) {
                 System.out.println("YOU LOSE");
+                System.out.println("""
+                        .-'~~~`-.
+                      .'         `.
+                      |  R  I  P  |
+                      |           |
+                      |           |
+                    \\\\|_/\\\\_/__//\\|//
+                    """);
                 String combatRoll1or2 = String.format("""
                         Stones tumble, weapons fall, and the ground shakes.
                         You struggle, pushing against debris and fallen enemies,
@@ -146,6 +170,15 @@ public class StageThree {
         int roll = Dice.dice(6);
 
         if (roll >= 1 && roll <= 2) {
+            System.out.println("YOU LOSE");
+            System.out.println("""
+                        .-'~~~`-.
+                      .'         `.
+                      |  R  I  P  |
+                      |           |
+                      |           |
+                    \\\\|_/\\\\_/__//\\|//
+                    """);
             String stealthRoll1or2 = String.format("""
                     The stealthy shadows you sought to navigate turn against you.
                     Darkness engulfs you, unseen force dragging you into the void.
@@ -156,6 +189,8 @@ public class StageThree {
             System.exit(0);
 
         } else if (roll >= 3 && roll <= 4) {
+            System.out.println("YOU LOSE, HOWEVER YOU SURVIVED!!! COUNT YOURSELF LUCKY AS YOU LIVE TO TELL THE TALE");
+            System.out.println("[♥] [♡] [♡] [♡] [♡]");
             String stealthRoll3or4 = String.format("""
                     Shadows and traps nearly overwhelm you, but quick thinking lets
                     you slip through. You emerge battered and shaken. The dungeon

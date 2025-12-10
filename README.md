@@ -13,9 +13,10 @@ Dungeons and Dragons game base where you roll a dice to determine the outcome of
 This is a Dice and Dungeons game base where you get to choice of outcomes and from that choice your chances of succeeding determins on a dice roll. and at each stage you get to make a choice to get close to the final boss. and if you succeed you get the victory text, and if you fail you always try again.
 
 ## Features
-- Dice rolling
-- Story outcomes
-- Name input
+- Dice rolling with ASCII art
+- Story outcomes with multiple choices options
+- Name input, player character selection, final boss selection
+- Final text file with the final outcome of the game with ASCII art
 
 ## How to Run
 1. Clone the repository
