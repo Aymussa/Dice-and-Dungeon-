@@ -11,7 +11,7 @@ class GameTest {
 
     @Test
     public void ShouldReturnStringAsAnInputACharacterNumberOne() {
-        //assemble
+        //arrange
 
         Game game = new Game();
 
@@ -25,7 +25,7 @@ class GameTest {
     }
     @Test
     public void ShouldReturnStringAsAnInputACharacterNumberTwo() {
-        //assemble
+        //arrange
 
         Game game = new Game();
 
@@ -39,8 +39,7 @@ class GameTest {
     }
     @Test
     public void ShouldReturnStringAsAnInputACharacterNumberThree() {
-        //assemble
-
+        //arrange
         Game game = new Game();
 
         //act
@@ -53,7 +52,7 @@ class GameTest {
     }
     @Test
     public void ShouldReturnStringAsAnInputACharacterNumberFour() {
-        //assemble
+        //arrange
 
         Game game = new Game();
 
@@ -68,7 +67,7 @@ class GameTest {
 
     @Test
     public void ShouldReturnStringAsAnInputABossNumberOne() {
-        //assemble
+        //arrange
         Game game = new Game();
 
         //act
@@ -81,7 +80,7 @@ class GameTest {
     }
     @Test
     public void ShouldReturnStringAsAnInputABossNumberTwo() {
-        //assemble
+        //arrange
         Game game = new Game();
 
         //act
@@ -94,7 +93,7 @@ class GameTest {
     }
     @Test
     public void ShouldReturnStringAsAnInputABossNumberThree() {
-        //assemble
+        //arrange
         Game game = new Game();
 
         //act
@@ -107,7 +106,7 @@ class GameTest {
     }
     @Test
     public void ShouldReturnStringAsAnInputABossNumberFour() {
-        //assemble
+        //arrange
         Game game = new Game();
 
         //act
@@ -120,7 +119,7 @@ class GameTest {
     }
     @Test
     public void ShouldReturnNullForInvalidInputCaseOne() {
-        //assemble
+        //arrange
         Game game = new Game();
 
         //act
@@ -133,7 +132,7 @@ class GameTest {
     }
     @Test
     public void ShouldReturnNullForInvalidInputCaseTwo() {
-        //assemble
+        //arrange
         Game game = new Game();
 
         //act
@@ -146,7 +145,7 @@ class GameTest {
     }
     @Test
     public void ShouldReturnNullForInvalidInputCaseThree() {
-        //assemble
+        //arrange
         Game game = new Game();
 
         //act
@@ -159,7 +158,7 @@ class GameTest {
     }
     @Test
     public void ShouldReturnNullForInvalidInputCaseFour() {
-        //assemble
+        //arrange
         Game game = new Game();
 
         //act
@@ -172,7 +171,7 @@ class GameTest {
     }
     @Test
     public void ShouldReturnWizardWhenCreatPlayerUserCharacterChoiceIsWizard() {
-        //assemble
+        //arrange
         Game game = new Game();
 
         //act
@@ -181,11 +180,11 @@ class GameTest {
 
         //assert
         assertNotNull(result);
-        assertTrue(result instanceof HumanCharacter.Wizard);
+        assertTrue(result instanceof PlayerCharacter.Wizard);
     }
     @Test
     public void ShouldReturnWoodElfWhenCreatPlayerUserCharacterChoiceIsWoodElf() {
-        //assemble
+        //arrange
         Game game = new Game();
 
         //act
@@ -194,11 +193,11 @@ class GameTest {
 
         //assert
         assertNotNull(result);
-        assertTrue(result instanceof ElfCharacter.WoodElf);
+        assertTrue(result instanceof PlayerCharacter.WoodElf);
     }
     @Test
     public void ShouldReturnKnightWhenCreatPlayerUserCharacterChoiceIsKnight() {
-        //assemble
+        //arrange
         Game game = new Game();
 
         //act
@@ -207,11 +206,11 @@ class GameTest {
 
         //assert
         assertNotNull(result);
-        assertTrue(result instanceof HumanCharacter.Knight);
+        assertTrue(result instanceof PlayerCharacter.Knight);
     }
     @Test
     public void ShouldReturnHighElfWhenCreatPlayerUserCharacterChoiceIsHighElf() {
-        //assemble
+        //arrange
         Game game = new Game();
 
         //act
@@ -220,11 +219,11 @@ class GameTest {
 
         //assert
         assertNotNull(result);
-        assertTrue(result instanceof ElfCharacter.HighElf);
+        assertTrue(result instanceof PlayerCharacter.HighElf);
     }
     @Test
     public void ShouldReturnNullWhenCreatePlayerUserCharacterChoiceIsInvalid() {
-        //assemble
+        //arrange
         Game game = new Game();
 
         //act
@@ -237,7 +236,7 @@ class GameTest {
 
     @Test
     public void ShouldReturnNullWhenCreateBossUserChoiceIsInvalid() {
-        //assemble
+        //arrange
         Game game = new Game();
 
         //act

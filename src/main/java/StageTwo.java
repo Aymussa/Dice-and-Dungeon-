@@ -2,28 +2,36 @@ import java.util.Scanner;
 
 public class StageTwo {
 
-    public static void stage2Mystic(Character player, Character boss) {
+    public static void stage2Mystic(PlayerCharacter player, Character boss) {
         Scanner input = new Scanner(System.in);
 
         int roll = Dice.dice(6);
 
         if (roll >= 1 && roll <= 2) {
-            System.out.println("YOU LOSE");
-            System.out.println("""
-                        .-'~~~`-.
-                      .'         `.
-                      |  R  I  P  |
-                      |           |
-                      |           |
-                    \\\\|_/\\\\_/__//\\|//
-                    """);
-            String mysticRoll1or2 = String.format("""
-                    The dungeon is alive with peril. Roots snap. You claw, but gravity,
-                    overwhelms you. The echo of %s passes unseen above as...
-                    your story ends in the cold, unyielding depths.
-                    """, boss.getName());
-            System.out.println(mysticRoll1or2);
-            System.exit(0);
+            player.lostLife();
+            player.getLives2();
+            if (player.getLives2() == 0) {
+                System.out.println("You have lost all your lives");
+                System.out.println("""
+                            .-'~~~`-.
+                          .'         `.
+                          |  R  I  P  |
+                          |           |
+                          |           |
+                        \\|_/\\_/__//\\|//
+                        """);
+                String mysticRoll1or2 = String.format("""
+                        The dungeon is alive with peril. Roots snap. You claw, but gravity,
+                        overwhelms you. The echo of %s passes unseen above as...
+                        your story ends in the cold, unyielding depths.
+                        """, boss.getName());
+                System.out.println(mysticRoll1or2);
+                System.exit(0);
+            } else {
+                System.out.println("You've fallen this round and lost a life. You now have " + player.getLives2() + " lives remaining. Start again from stage 2 ");
+                StageTwo.stage2Mystic(player, boss);
+            }
+
 
         } else if (roll >= 3 && roll <= 6) {
             // this is where I merged the story so that the story does not extend any further outputs
@@ -51,6 +59,7 @@ public class StageTwo {
                 try {
                     int MysticSelections = input.nextInt();
                     // this is where I merged the story so that the story does not extend any further outputs
+                    System.out.println("you have selected Option: " + MysticSelections);
 
                     if (MysticSelections >= 1 && MysticSelections <= 3) {
                         StageThree.stage3Mystic(player, boss);
@@ -69,29 +78,37 @@ public class StageTwo {
         }
     }
 
-    public static void stage2Combat(Character player, Character boss) {
+    public static void stage2Combat(PlayerCharacter player, Character boss) {
         Scanner input = new Scanner(System.in);
 
         int roll = Dice.dice(6);
 
         if (roll >= 1 && roll <= 2) {
-            System.out.println("YOU LOSE");
-            System.out.println("""
-                        .-'~~~`-.
-                      .'         `.
-                      |  R  I  P  |
-                      |           |
-                      |           |
-                    \\\\|_/\\\\_/__//\\|//
-                    """);
-            String combatRoll1or2 = String.format("""
-                    The dungeon is alive with peril. Water surges.
-                    You swim, but the current overwhelms you.
-                    The echo of %s passes unseen above
-                    as your story ends in the cold, unyielding depths.
-                    """, boss.getName());
-            System.out.println(combatRoll1or2);
-            System.exit(0);
+            player.lostLife();
+            player.getLives2();
+            if (player.getLives2() == 0) {
+                System.out.println("You have lost all your lives");
+                System.out.println("""
+                            .-'~~~`-.
+                          .'         `.
+                          |  R  I  P  |
+                          |           |
+                          |           |
+                        \\|_/\\_/__//\\|//
+                        """);
+                String combatRoll1or2 = String.format("""
+                        The dungeon is alive with peril. Water surges.
+                        You swim, but the current overwhelms you.
+                        The echo of %s passes unseen above
+                        as your story ends in the cold, unyielding depths.
+                        """, boss.getName());
+                System.out.println(combatRoll1or2);
+                System.exit(0);
+            } else {
+                System.out.println("You've fallen this round and lost a life. You now have " + player.getLives2() + " lives remaining. Start again from stage 2 ");
+                StageTwo.stage2Combat(player, boss);
+            }
+
 
         } else if (roll >= 3 && roll <= 6) {
             // this is where I merged the story so that the story does not extend any further outputs
@@ -120,6 +137,7 @@ public class StageTwo {
                 try {
                     int combatSelection = input.nextInt();
                     // this is where I merged the story so that the story does not extend any further outputs
+                    System.out.println("you have selected Option: " + combatSelection);
 
                     if (combatSelection >= 1 && combatSelection <= 3) {
                         StageThree.stage3Combat(player, boss);
@@ -139,27 +157,34 @@ public class StageTwo {
         }
     }
 
-    public static void stage2Stealth(Character player, Character boss) {
+    public static void stage2Stealth(PlayerCharacter player, Character boss) {
         Scanner input = new Scanner(System.in);
 
         int roll = Dice.dice(6);
         if (roll >= 1 && roll <= 2) {
-            System.out.println("YOU LOSE");
-            System.out.println("""
-                        .-'~~~`-.
-                      .'         `.
-                      |  R  I  P  |
-                      |           |
-                      |           |
-                    \\\\|_/\\\\_/__//\\|//
-                    """);
-            String StealthRoll1or2 = String.format("""
-                    The dungeon is alive with peril. Water surges. You swim,
-                    but the current overwhelms you.The echo of %s
-                    passes unseen above as your story ends in the cold, unyielding depths.
-                    """, boss.getName());
-            System.out.println(StealthRoll1or2);
-            System.exit(0);
+            player.lostLife();
+            player.getLives2();
+            if (player.getLives2() == 0) {
+                System.out.println("You have lost all your lives");
+                System.out.println("""
+                            .-'~~~`-.
+                          .'         `.
+                          |  R  I  P  |
+                          |           |
+                          |           |
+                        \\|_/\\_/__//\\|//
+                        """);
+                String StealthRoll1or2 = String.format("""
+                        The dungeon is alive with peril. Water surges. You swim,
+                        but the current overwhelms you.The echo of %s
+                        passes unseen above as your story ends in the cold, unyielding depths.
+                        """, boss.getName());
+                System.out.println(StealthRoll1or2);
+                System.exit(0);
+            } else {
+                System.out.println("You've fallen this round and lost a life. You now have " + player.getLives2() + " lives remaining. Start again from stage 2 ");
+                StageTwo.stage2Stealth(player, boss);
+            }
 
         } else if (roll >= 3 && roll <= 6) {
 
@@ -187,6 +212,7 @@ public class StageTwo {
                 try {
                     int stealthSelection = input.nextInt();
                     // this is where I merged the story so that the story does not extend any further outputs
+                    System.out.println("you have selected Option: " + stealthSelection);
 
                     if (stealthSelection >= 1 && stealthSelection <= 3) {
                         StageThree.stage3Stealth(player, boss);

@@ -8,8 +8,7 @@ public class DiceTest {
 
     @Test
     public void shouldReturnNumberFromOneToSix() {
-        //assemble
-        Dice dice = new Dice();
+        //arrange
 
         //act
         int result = Dice.dice(6);
@@ -19,8 +18,8 @@ public class DiceTest {
     }
     @Test
     public void shouldReturnRandomNumberFromOneToTwentyDice() {
-        //assemble
-        Dice dice = new Dice();
+        //arrange
+
 
         //act
         int result = Dice.dice(20);
@@ -30,8 +29,7 @@ public class DiceTest {
     }
     @Test
     public void shouldReturnRandomNumberFromOneToNineNineNineNineNineDice() {
-        //assemble
-        Dice dice = new Dice();
+        //arrange
 
         //act
         int result = Dice.dice(99999);
@@ -40,9 +38,8 @@ public class DiceTest {
         Assertions.assertTrue(result >= 1 && result <= 99999);
     }
     @Test
-    public void shouldReturnRandomNumberFromOneToOneDice() {
-        //assemble
-        Dice dice = new Dice();
+    public void shouldReturnNumberOneDiceWhenRollIsOne() {
+        //arrange
 
         //act
         int result = Dice.dice(1);
@@ -51,9 +48,9 @@ public class DiceTest {
         Assertions.assertTrue(result >= 1 && result <= 1);
     }
     @Test
-    public void shouldReturnRandomNumberFromOneToNegativeOneDice() {
-        //assemble
-        Dice dice = new Dice();
+    public void shouldReturnRandomNumberFromOneToNegativeTenDice() {
+        //arrange
+
 
         //act
         int result = Dice.dice(-10);

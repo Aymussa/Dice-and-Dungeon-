@@ -7,14 +7,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class WriterWinnerTest {
     @Test
     public void ShouldWriteWinnerTextFileAfterPlayerWins() {
-        //assemble
+        //arrange
         File file = new File("Winner.txt");
         if (file.exists()) {
             file.delete();
         }
 
         //act
-        WriterWinner.main();
+        PlayerCharacter player = new PlayerCharacter("TestPlayer");
+        BossCharacter boss = new BossCharacter("TestBoss");
+        WriterWinner.main(player,boss);
 
         //assert
         assertTrue(file.exists());

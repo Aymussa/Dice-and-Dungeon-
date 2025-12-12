@@ -3,13 +3,13 @@ import java.util.Scanner;
 
 public class MainStory {
 
-    public static void startStory(Character player, Character boss) {
+    public static void startStory(PlayerCharacter player, Character boss) {
         /*
-        * This is where the story starts, where the player is awoken in the shadowed ruins of The Fallen Gate.
-        * The player is then given 3 options to choose from, each leading to a different path.
-        * each path is withing this mainStory method and is called when the player selects it.
-        * after which they would go to stageTwo, StageThree and finally StageFour.
-        */
+         * This is where the story starts, where the player is awoken in the shadowed ruins of The Fallen Gate.
+         * The player is then given 3 options to choose from, each leading to a different path.
+         * each path is withing this mainStory method and is called when the player selects it.
+         * after which they would go to stageTwo, StageThree and finally StageFour.
+         */
         String StartLine = String.format("""
                 +------------------------------------------------------------------+
                 |You awaken in the shadowed ruins of The Fallen Gate,              |
@@ -41,6 +41,7 @@ public class MainStory {
             try {
 
                 int firstStage = input.nextInt();
+                System.out.println("you have selected Option: " + firstStage);
                 if (firstStage >= 1 && firstStage <= 3) {
                     storyline = false;
                 } else {
@@ -65,31 +66,38 @@ public class MainStory {
         }
     }
 
-    private static void stage1Forest(Character player, Character boss) {
+    private static void stage1Forest(PlayerCharacter player, Character boss) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Selected: Forest Hall");
+        //System.out.println("Selected: Forest Hall");
 
         int roll = Dice.dice(6);
         if (roll >= 1 && roll <= 2) {
-            System.out.println("YOU LOSE");
-            System.out.println("""
-                        .-'~~~`-.
-                      .'         `.
-                      |  R  I  P  |
-                      |           |
-                      |           |
-                    \\\\|_/\\\\_/__//\\|//
-                    """);
-            String forestRoll1or2 = String.format("""
-                    The ruins shudder and shift beneath your feet.
-                    A hidden pathway collapses.
-                    You scramble, but the dungeon rejects your presence.
-                    Darkness swallows you, and you never move beyond the Fallen Gate.
-                    Even as a %s your journey ends here — before it begins.
-                    """, boss.getName());
-            System.out.println(forestRoll1or2);
-            System.exit(0);
+            player.lostLife();
+            player.getLives2();
+            if (player.getLives2() == 0) {
+                System.out.println("You have lost all your lives");
+                System.out.println("""
+                            .-'~~~`-.
+                          .'         `.
+                          |  R  I  P  |
+                          |           |
+                          |           |
+                        \\\\|_/\\\\_/__//\\|//
+                        """);
+                String forestRoll1or2 = String.format("""
+                        The ruins shudder and shift beneath your feet.
+                        A hidden pathway collapses.
+                        You scramble, but the dungeon rejects your presence.
+                        Darkness swallows you, and you never move beyond the Fallen Gate.
+                        Even as a %s your journey ends here — before it begins.
+                        """, boss.getName());
+                System.out.println(forestRoll1or2);
+                System.exit(0);//loose
+            } else {
+                System.out.println("You've fallen this round and lost a life. You now have " + player.getLives2() + " lives remaining. Start again from stage 1 ");
+                MainStory.stage1Forest(player, boss);
+            }
 
         } else if (roll >= 3 && roll <= 4) {
             String forestRoll3or4 = String.format("""
@@ -116,6 +124,7 @@ public class MainStory {
 
                 try {
                     int forestSelections = input.nextInt();
+                    System.out.println("you have selected Option: " + forestSelections);
 
                     if (forestSelections >= 1 && forestSelections <= 3) {
                         StageTwo.stage2Stealth(player, boss);
@@ -159,6 +168,7 @@ public class MainStory {
 
                 try {
                     int forestSelectionsTwo = input.nextInt();
+                    System.out.println("you have selected Option: " + forestSelectionsTwo);
 
                     if (forestSelectionsTwo >= 1 && forestSelectionsTwo <= 3) {
                         StageTwo.stage2Stealth(player, boss);
@@ -176,31 +186,38 @@ public class MainStory {
         }
     }
 
-    private static void stage1Wetstone(Character player, Character boss) {
+    private static void stage1Wetstone(PlayerCharacter player, Character boss) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Selected: Wetstone Tunnels");
+        //System.out.println("Selected: Wetstone Tunnels");
 
         int roll = Dice.dice(6);
         if (roll >= 1 && roll <= 2) {
-            System.out.println("YOU LOSE");
-            System.out.println("""
-                        .-'~~~`-. 
-                      .'         `.
-                      |  R  I  P  |
-                      |           |
-                      |           |
-                    \\\\|_/\\\\_/__//\\|//
-                    """);
-            String wetstoneRoll1or2 = String.format("""
-                    The ruins shudder and shift beneath your feet.
-                    A hidden passage collapses.
-                    You scramble, but the dungeon rejects your presence.
-                    Darkness swallows you, and you never move beyond the Fallen Gate.
-                    Even as a %s your journey ends here — before it begins.
-                    """, player.getName());
-            System.out.println(wetstoneRoll1or2);
-            System.exit(0);
+            player.lostLife();
+            player.getLives2();
+            if (player.getLives2() == 0) {
+                System.out.println("You have lost all your lives");
+                System.out.println("""
+                            .-'~~~`-. 
+                          .'         `.
+                          |  R  I  P  |
+                          |           |
+                          |           |
+                        \\\\|_/\\\\_/__//\\|//
+                        """);
+                String wetstoneRoll1or2 = String.format("""
+                        The ruins shudder and shift beneath your feet.
+                        A hidden passage collapses.
+                        You scramble, but the dungeon rejects your presence.
+                        Darkness swallows you, and you never move beyond the Fallen Gate.
+                        Even as a %s your journey ends here — before it begins.
+                        """, player.getName());
+                System.out.println(wetstoneRoll1or2);
+                System.exit(0);
+            } else {
+                System.out.println("You've fallen this round and lost a life. You now have " + player.getLives2() + " lives remaining. Start again from stage 1 ");
+                MainStory.stage1Wetstone(player, boss);
+            }
 
         } else if (roll >= 3 && roll <= 4) {
             String wetstoneRoll3or4 = String.format("""
@@ -228,6 +245,7 @@ public class MainStory {
 
                 try {
                     int forestSelections = input.nextInt();
+                    System.out.println("you have selected Option: " + forestSelections);
 
                     if (forestSelections >= 1 && forestSelections <= 3) {
                         StageTwo.stage2Stealth(player, boss);
@@ -271,6 +289,7 @@ public class MainStory {
 
                 try {
                     int weststoneSelections = input.nextInt();
+                    System.out.println("you have selected Option: " + weststoneSelections);
 
                     if (weststoneSelections >= 1 && weststoneSelections <= 3) {
                         StageTwo.stage2Combat(player, boss);
@@ -289,31 +308,38 @@ public class MainStory {
         }
     }
 
-    private static void stage1Stairwell(Character player, Character boss) {
+    private static void stage1Stairwell(PlayerCharacter player, Character boss) {
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Selected : Broken Stairwell");
+        //System.out.println("Selected : Broken Stairwell");
 
         int roll = Dice.dice(6);
         if (roll >= 1 && roll <= 2) {
-            System.out.println("YOU LOSE");
-            System.out.println("""
-                        .-'~~~`-.
-                      .'         `.
-                      |  R  I  P  |
-                      |           |
-                      |           |
-                    \\\\|_/\\\\_/__//\\|//
-                    """);
-            String stairwellRoll1or2 = String.format("""
-                    The ruins shudder and shift beneath your feet.
-                    A hidden trap snaps open.
-                    You scramble, but the dungeon rejects your presence.
-                    Darkness swallows you, and you never move beyond the Fallen Gate.
-                    Even as a %s your journey ends here — before it begins.
-                    """, player.getName());
-            System.out.println(stairwellRoll1or2);
-            System.exit(0);
+            player.lostLife();
+            player.getLives2();
+            if (player.getLives2() == 0) {
+                System.out.println("You have lost all your lives");
+                System.out.println("""
+                            .-'~~~`-.
+                          .'         `.
+                          |  R  I  P  |
+                          |           |
+                          |           |
+                        \\\\|_/\\\\_/__//\\|//
+                        """);
+                String stairwellRoll1or2 = String.format("""
+                        The ruins shudder and shift beneath your feet.
+                        A hidden trap snaps open.
+                        You scramble, but the dungeon rejects your presence.
+                        Darkness swallows you, and you never move beyond the Fallen Gate.
+                        Even as a %s your journey ends here — before it begins.
+                        """, player.getName());
+                System.out.println(stairwellRoll1or2);
+                System.exit(0);
+            } else {
+                System.out.println("You've fallen this round and lost a life. You now have " + player.getLives2() + " lives remaining. Start again from stage 1 ");
+                MainStory.stage1Stairwell(player, boss);
+            }
 
         } else if (roll >= 3 && roll <= 4) {
             System.out.println("Cracks spiderweb across the descent. Cold wind rises");
@@ -337,6 +363,7 @@ public class MainStory {
 
                 try {
                     int stairwellSelections = input.nextInt();
+                    System.out.println("you have selected Option: " + stairwellSelections);
 
                     if (stairwellSelections >= 1 && stairwellSelections <= 3) {
                         StageTwo.stage2Combat(player, boss);
@@ -373,6 +400,7 @@ public class MainStory {
 
                 try {
                     int stairwellSelections = input.nextInt();
+                    System.out.println("you have selected Option: " + stairwellSelections);
 
                     if (stairwellSelections >= 1 && stairwellSelections <= 3) {
                         StageTwo.stage2Mystic(player, boss);

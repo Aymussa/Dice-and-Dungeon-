@@ -7,14 +7,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class WriterDefeatedTest {
     @Test
     public void ShouldWriteDefeatedTextFileAfterPlayerLoses() {
-        //assemble
+        //arrange
         File file = new File("Defeated.txt");
         if (file.exists()) {
             file.delete();
         }
 
         //act
-        WriterDefeated.main();
+        PlayerCharacter player = new PlayerCharacter("TestPlayer");
+        BossCharacter boss = new BossCharacter("TestBoss");
+        WriterDefeated.main(player,boss);
 
 
         //assert

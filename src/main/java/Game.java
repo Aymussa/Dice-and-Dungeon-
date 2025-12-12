@@ -1,51 +1,57 @@
 import java.util.Scanner;
+
 /*
  * This is where I create the Game class,
  * I kept the logic in methods outside the main so that I can test the code
  */
 public class Game {
-    public static String getCharacterClass(int option){
+    public static String getCharacterClass(int option) {
         /*
-        *This method takes the user options 1/2/3/4  and returns the matching character class as a string.
-        * if the option is not between 1-4 it returns null
-        */
+         *This method takes the user options 1/2/3/4  and returns the matching character class as a string.
+         * if the option is not between 1-4 it returns null
+         */
         String[] characterClasses = {"Wizard", "Knight", "Wood Elf", "High Elf"};
-        if ( option >= 1 && option <= 4) {
+        if (option >= 1 && option <= 4) {
             return characterClasses[option - 1];
-        }return null;
+        }
+        return null;
     }
 
-    /*I created this method to build the player object. It takes the selected class name
+    /*
+    I created this method to build the player object. It takes the selected class name
     * and uses a switch statement to create the correct Character subclass.
     */
-    public static Character createPlayer(String selectedClass) {
-        Character player = null; //initialise the player to null and then assign it to the selected class with switch statement
+    public static PlayerCharacter createPlayer(String selectedClass) {
+        PlayerCharacter player = null; //initialise the player to null and then assign it to the selected class with switch statement
         switch (selectedClass) {
             case "Wizard":
-                player = new HumanCharacter.Wizard(selectedClass);
+                player = new PlayerCharacter.Wizard(selectedClass);
                 break;
             case "Knight":
-                player = new HumanCharacter.Knight(selectedClass);
+                player = new PlayerCharacter.Knight(selectedClass);
                 break;
             case "Wood Elf":
-                player = new ElfCharacter.WoodElf(selectedClass);
+                player = new PlayerCharacter.WoodElf(selectedClass);
                 break;
             case "High Elf":
-                player = new ElfCharacter.HighElf(selectedClass);
+                player = new PlayerCharacter.HighElf(selectedClass);
                 break;
         }
         return player;
     }
+
     /*
      *This method takes the user boss option 1/2/3/4 and returns the matching boss as a string.
      * if the option is not between 1-4 it returns null
      */
-    public static String getBoss(int option){
+    public static String getBoss(int option) {
         String[] bossOptions = {"Dragon", "Dark Elf", "Cerberus", "Goblin"};
-        if ( option >= 1 && option <= 4) {
+        if (option >= 1 && option <= 4) {
             return bossOptions[option - 1];
-        }return null;
+        }
+        return null;
     }
+
     /*
      *I created this method to build the boss object. It takes the selected boss name
      * and uses a switch statement to create the correct BossCharacter subclass.
@@ -79,14 +85,14 @@ public class Game {
 
         Scanner input = new Scanner(System.in);
         System.out.println("""
-            +------------------------------------------------+
-            |       _                                        |
-            |      |  Hello and welcome to the D&D game!     |
-            |  O===[=====================================-   |
-            |      |_         Let's get started!             |
-            |                                                |
-            +------------------------------------------------+
-            """);
+                +------------------------------------------------+
+                |       _                                        |
+                |      |  Hello and welcome to the D&D game!     |
+                |  O===[=====================================-   |
+                |      |_         Let's get started!             |
+                |                                                |
+                +------------------------------------------------+
+                """);
         System.out.println("What is your name Adventurer? ");
 
         String playerName = input.nextLine();
@@ -114,7 +120,7 @@ public class Game {
                 selectedClass = getCharacterClass(characterOptions);
 
                 if (characterOptions >= 1 && characterOptions <= 4) {
-                    System.out.println("Congratulations " + playerName + " you have selected " + selectedClass+ " as your character class");
+                    System.out.println("Congratulations " + playerName + " you have selected " + selectedClass + " as your character class");
                     System.out.println();
                     input.nextLine();
 
@@ -122,30 +128,31 @@ public class Game {
                     while (confirmClass) {
                         System.out.println("""
                                 +---------------------------------------------+
-                                |    Would you like to change character?      |
-                                |                  yes / no                   |
+                                |    Please confirm your choice. Type 'yes'   |
+                                |       to continue or 'no' to reselect."     |
+                                |                                             |
                                 +---------------------------------------------+
                                 """);
                         String characterChange = input.nextLine().toLowerCase();
                         System.out.println();
 
-                        if ((!characterChange.equals("yes")) && (!characterChange.equals("no"))&&(!characterChange.equals("y"))&&(!characterChange.equals("n"))) {
+                        if ((!characterChange.equals("yes")) && (!characterChange.equals("no")) && (!characterChange.equals("y")) && (!characterChange.equals("n"))) {
                             System.out.println(characterChange + " This is an invalid response. Please write yes or no.(y/n)");
                             confirmClass = true;
 
-                        } else if (characterChange.equals("yes")||characterChange.equals("y")) {
-                            confirmClass = false;
-                            selectingCharacter = true;
-
-                        } else if (characterChange.equals("no")||characterChange.equals("n")) {
+                        } else if (characterChange.equals("yes") || characterChange.equals("y")) {
                             confirmClass = false;
                             selectingCharacter = false;
+
+                        } else if (characterChange.equals("no") || characterChange.equals("n")) {
+                            confirmClass = false;
+                            selectingCharacter = true;
                         }
                     }
                 } else {
                     System.out.println(characterOptions + " - Invalid option. Please try again. Please enter a number between 1 - 4.");
                 }
-            }catch (Exception e) {
+            } catch (Exception e) {
                 System.out.println("Invalid input. Please enter a number between 1 - 4.");
                 input.nextLine();
                 selectingCharacter = true;
@@ -156,27 +163,29 @@ public class Game {
 
         // Here I create the player object using the selectedClass.
         // The main method calls createPlayer(selectedClass), which uses a switch to build the right Character type.
-        Character player = createPlayer(selectedClass);
+        PlayerCharacter player = createPlayer(selectedClass);
+        System.out.println("Welcome " + player.getName());
+        System.out.println("You have " + player.getLives2() + " lives");
 
         boolean finalBoss = true;
 
         while (finalBoss) {
             System.out.println("""
-            +-----------------------------------------------+
-            |   What Final boss would you like to defeat?   |
-            |   -Please select from the following options-  |
-            |_______________________________________________|
-            |                                               |
-            |   Option 1: Dragon    |   Option 2: Dark Elf  |
-            |   Option 3: Cerberus  |   Option 4: Goblin    |
-            +-----------------------------------------------+
-            """);
+                    +-----------------------------------------------+
+                    |   What Final boss would you like to defeat?   |
+                    |   -Please select from the following options-  |
+                    |_______________________________________________|
+                    |                                               |
+                    |   Option 1: Dragon    |   Option 2: Dark Elf  |
+                    |   Option 3: Cerberus  |   Option 4: Goblin    |
+                    +-----------------------------------------------+
+                    """);
             try {
                 int boosOption = input.nextInt();
                 selectedBoss = getBoss(boosOption);
 
                 if (boosOption >= 1 && boosOption <= 4) {
-                    System.out.println("Congratulations " + playerName + " you have selected "+ selectedBoss + " as your final boss");
+                    System.out.println("Congratulations " + playerName + " you have selected " + selectedBoss + " as your final boss");
                     System.out.println();
                     input.nextLine();
 
@@ -184,35 +193,35 @@ public class Game {
                     while (finalBossChange) {
                         System.out.println("""
                                 +---------------------------------------------+
-                                |  Would you like to change your final boss?  |
-                                |                  yes / no                   |
+                                |    Please confirm your choice. Type 'yes'   |
+                                |       to continue or 'no' to reselect."     |
+                                |                                             |
                                 +---------------------------------------------+
                                 """);
                         String responseBossOption = input.nextLine().toLowerCase();
                         System.out.println();
 
-                        if ((!responseBossOption.equals("yes")) && (!responseBossOption.equals("no"))&&(!responseBossOption.equals("y"))&&(!responseBossOption.equals("n"))) {
+                        if ((!responseBossOption.equals("yes")) && (!responseBossOption.equals("no")) && (!responseBossOption.equals("y")) && (!responseBossOption.equals("n"))) {
                             System.out.println(responseBossOption + " This is an invalid response. Please enter yes or no.(y/n)");
 
-                            finalBossChange = true;
-                        } else if (responseBossOption.equals("yes")||responseBossOption.equals("y")) {
-                            finalBossChange = false;
-                            finalBoss = true;
-
-                        } else if (responseBossOption.equals("no")||responseBossOption.equals("n")) {
+                        } else if (responseBossOption.equals("yes") || responseBossOption.equals("y")) {
                             System.out.println("""
-                                    +-------------------------------------------------+
-                                    |       _                                         |
-                                    |      |  Great, lets begin your adventure!       |
-                                    |  O===[====================================-     |
-                                    |      |_                                         |
-                                    +-------------------------------------------------+
-                            """);
-                            finalBoss = false;
+                                            +-------------------------------------------------+
+                                            |       _                                         |
+                                            |      |  Great, lets begin your adventure!       |
+                                            |  O===[====================================-     |
+                                            |      |_                                         |
+                                            +-------------------------------------------------+
+                                    """);
                             finalBossChange = false;
+                            finalBoss = false;
                             Character boss = createBoss(selectedBoss);
                             // exit the option question loop and enter the main story arc that starts the game play
                             MainStory.startStory(player, boss);
+
+                        } else if (responseBossOption.equals("no") || responseBossOption.equals("n")) {
+                            finalBossChange = false;
+                            finalBoss = true;
                         }
                     }
                 } else {
