@@ -16,12 +16,12 @@ public class WriterSurvivor {
             }
 
             myWriter = new FileWriter(myFile);
-            myWriter.write("As a " + player.getName() + " you survived the "+ boss.getName()+" , but you didnt win the game...This time !!!\n");
+            myWriter.write("As a " + player.getName() + " you survived the "+ boss.getName()+" , but you did not win the game...This time !!!\n");
 
             myWriter.write(""" 
                                _________________________________________________________
                               |                                                         |
-                              | You survived the game, but you didnt win..This time !!  |
+                              | You survived the game, but you did not win..This time!! |
                               | ________________________________________________________|
                               |     -_-     ____     ____       ____                _-  |\s
                               |_-_- _      |  _ \\   /  _ \\     |  _ \\          -_- _- - |\s
