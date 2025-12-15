@@ -23,7 +23,7 @@ public class StageFour {
                     echoes with your last effort, and darkness claims you.
                     """, player.getName(), boss.getName(), boss.getName());
             System.out.println(finalRoll1or2);
-            WriterDefeated.main(player,boss);
+            WriterDefeated.main(player, boss);
             System.out.println("Please go the the Defeated file to see the defeated art");
             System.exit(0);
 
@@ -37,7 +37,7 @@ public class StageFour {
                     — a story of survival without glory.
                     """, boss.getName());
             System.out.println(finalRoll3or4);
-            WriterSurvivor.main(player,boss);
+            WriterSurvivor.main(player, boss);
             System.out.println("Please go to the Survivor file to see the survivor art ");
             System.exit(0);
 
@@ -51,7 +51,7 @@ public class StageFour {
             System.out.println(finalRoll5or6);
             System.out.println("Please go to the Winner file to see the winner art");
 
-            WriterWinner.main(player,boss);
+            WriterWinner.main(player, boss);
             System.exit(0);
         }
     }

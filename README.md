@@ -4,6 +4,7 @@ Dungeons and Dragons style game, where you roll a dice to determine the outcome 
 ## Table of Contents
  - [⚀ Description](#description)
  - [⚁ Features](#features)
+ - [⊹ Prerequisites](#prerequisites)
  - [⚂ How to Run](#how-to-run)
  - [⚃ Contributing](#contributing)
  - [⚄ Author](#author)
@@ -19,12 +20,27 @@ This is a Dice and Dungeons game base where you get to choice of outcomes and fr
 - Name input, player character selection, final boss selection
 - Final text file with the final outcome of the game with ASCII art
 
+## Prerequisites
+- Java 21 (this project uses a Java 21 toolchain)
+
 ## How to Run
 1. Clone the repository
-2. Open the repository in your preferred IDE
-3. Compile the Game.java file
-4. Run the Game.java file
-5. Follow the prompts
+
+### Option A (recommended): Run with Gradle
+1. Open a terminal in the project root
+2. Run:
+   - macOS/Linux: `./gradlew run`
+   - Windows: `gradlew.bat run`
+3. Follow the prompts
+
+### Option B: Run without Gradle (plain Java)
+1. Compile:
+   - macOS/Linux: `javac -d out src/main/java/*.java`
+   - Windows: `javac -d out src\main\java\*.java`
+2. Run:
+   - macOS/Linux: `java -cp out Game`
+   - Windows: `java -cp out Game`
+3. Follow the prompts
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.

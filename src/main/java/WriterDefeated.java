@@ -4,7 +4,7 @@ import java.io.IOException;
 
 
 public class WriterDefeated {
-    public static void main(PlayerCharacter player,Character boss) {
+    public static void main(PlayerCharacter player, Character boss) {
         FileWriter myWriter = null;
         try {
             File myFile = new File("Defeated.txt");
@@ -16,7 +16,7 @@ public class WriterDefeated {
             }
 
             myWriter = new FileWriter(myFile);
-            myWriter.write("As a " + player.getName() + " you did your best but at the end you have been defeated by "+boss.getName()+"\n");
+            myWriter.write("As a " + player.getName() + " you did your best but at the end you have been defeated by " + boss.getName() + "\n");
 
             myWriter.write(""" 
                                _________________________________________________________

@@ -4,7 +4,7 @@ import java.io.IOException;
 
 
 public class WriterWinner {
-    public static void main(PlayerCharacter player,Character boss) {
+    public static void main(PlayerCharacter player, Character boss) {
         FileWriter myWriter = null;
         try {
             File myFile = new File("Winner.txt");
@@ -16,7 +16,7 @@ public class WriterWinner {
             }
 
             myWriter = new FileWriter(myFile);
-            myWriter.write("As a " + player.getName()+ " you fought well and defeated "+boss.getName()+"\n");
+            myWriter.write("As a " + player.getName() + " you fought well and defeated " + boss.getName() + "\n");
 
             myWriter.write(""" 
                                _________________________________________________________

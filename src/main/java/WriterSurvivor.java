@@ -4,7 +4,7 @@ import java.io.IOException;
 
 
 public class WriterSurvivor {
-    public static void main(PlayerCharacter player,Character boss) {
+    public static void main(PlayerCharacter player, Character boss) {
         FileWriter myWriter = null;
         try {
             File myFile = new File("Survivor.txt");
@@ -16,7 +16,7 @@ public class WriterSurvivor {
             }
 
             myWriter = new FileWriter(myFile);
-            myWriter.write("As a " + player.getName() + " you survived the "+ boss.getName()+" , but you did not win the game...This time !!!\n");
+            myWriter.write("As a " + player.getName() + " you survived the " + boss.getName() + " , but you did not win the game...This time !!!\n");
 
             myWriter.write(""" 
                                _________________________________________________________
